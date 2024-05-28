@@ -15,17 +15,8 @@
       VISUAL = "nvim";
     };
 
-    #oh-my-zsh = {
-    #  enable = true;
-    #  plugins = [ "git" ];
-    #  theme = "gallois";
-    #};
-
     shellAliases = {
       e = "nvim";
-      #vim = "nvim";
-      #vimdiff = "nvim -d";
-      #ll = "ls -l";
       update-nixos = "sudo nix-channel --update && sudo nixos-rebuild switch";
       update-home = "sudo nix-channel --update && home-manager switch";
       gc-nixos = "sudo nix-collect-garbage --delete-older-than 30d";
