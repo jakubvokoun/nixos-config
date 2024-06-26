@@ -142,3 +142,52 @@ nix-shell '<home-manager>' -A install
 
 Taken from: https://github.com/Misterio77/nix-starter-configs
 
+### User-level systemd services
+
+```nix
+# ~/.config/home-manager/home.nix
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # ...
+    ./systemd.nix
+  ];
+}
+```
+
+```nix
+# ~/.config/home-manager/systemd.nix
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
+  systemd.user.services.foo = {
+    Unit = { Description = "Foo service"; };
+
+    Service = {
+      Type = "oneshot";
+      WorkingDirectory = "/home/jakub/foo-app";
+      ExecStart = "/home/jakub/Work/foo-app/foo run";
+    };
+  };
+
+  systemd.user.timers.foo = {
+    Unit = { Description = "Foo timer"; };
+
+    Timer = {
+      OnCalendar = "*-*-* *:00:00";
+      Unit = "foo.service";
+    };
+
+    Install = { WantedBy = [ "timers.target" ]; };
+  };
+}
+```
