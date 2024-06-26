@@ -12,7 +12,7 @@
     longitude = "14.418540";
     tray = true;
     temperature = {
-      day = 5700;
+      day = 5800;
       night = 3500;
     };
     settings = {

@@ -5,22 +5,34 @@
   pkgs,
   ...
 }: {
+  home.packages = [
+    pkgs.zsh-powerlevel10k
+  ];
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    syntaxHighlighting.enable = true;
+
+    dotDir = ".config/zsh";
+    initExtra = ''
+    # Powerlevel10k Zsh theme  
+    source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme  
+    test -f ~/.config/zsh/.p10k.zsh && source ~/.config/zsh/.p10k.zsh  
+    '';
 
     sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
+      SSH_ASKPASS = "$HOME/.nix-profile/bin/ksshaskpass";
+      SSH_ASKPASS_REQUIRE = "prefer";
     };
 
     shellAliases = {
       e = "nvim";
       update-nixos = "sudo nix-channel --update && sudo nixos-rebuild switch";
       update-home = "sudo nix-channel --update && home-manager switch";
-      gc-nixos = "sudo nix-collect-garbage --delete-older-than 30d";
-      gc-home = "home-manager expire-generations '-30 days'";
+      gc-nixos = "sudo nix-collect-garbage --delete-older-than 15d";
+      gc-home = "home-manager expire-generations '-15 days'";
     };
 
     plugins = [

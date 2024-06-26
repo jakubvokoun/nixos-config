@@ -17,7 +17,6 @@
     ./nvim.nix
     ./fonts.nix
     ./zsh.nix
-    ./starship.nix
     ./fzf.nix
     ./git.nix
     ./redshift.nix
@@ -52,6 +51,9 @@
 
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
+    # Nix tools
+    niv
+
     # Python
     (pkgs.python311.withPackages (ppkgs: []))
 
@@ -99,6 +101,9 @@
     thunderbird
     slack
 
+    # FTP
+    filezilla
+
     # Printing
     system-config-printer
 
@@ -124,6 +129,26 @@
     # Multimedia
     gimp
     audacity
+
+    # Misc
+    meld
+    etcher
+
+    # KDE
+    pkgs.libsForQt5.kompare
+    pkgs.libsForQt5.yakuake
+    pkgs.libsForQt5.ksshaskpass
+    pkgs.libsForQt5.akonadi
+    pkgs.libsForQt5.kdepim-runtime
+    pkgs.libsForQt5.korganizer
+    pkgs.libsForQt5.kate
+    pkgs.libsForQt5.kwrited
+    pkgs.libsForQt5.kdevelop
+    pkgs.libsForQt5.kdev-php
+    pkgs.libsForQt5.kdev-python
+    pkgs.libsForQt5.keditbookmarks
+    pkgs.krusader
+    pkgs.krename
  ];
 
   # Enable home-manager
