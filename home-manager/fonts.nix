@@ -5,6 +5,7 @@
   pkgs,
   ...
 }: {
+  #fonts.fontconfig.enable = true;
   home.packages = [
     pkgs.font-awesome
     pkgs.jetbrains-mono
@@ -16,5 +17,6 @@
     pkgs.corefonts
     pkgs.nerdfonts
     pkgs.dejavu_fonts
+    #(pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 }

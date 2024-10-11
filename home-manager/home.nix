@@ -17,9 +17,11 @@
     ./nvim.nix
     ./fonts.nix
     ./zsh.nix
+    #./starship.nix
     ./fzf.nix
     ./git.nix
     ./redshift.nix
+    #./plasma.nix
   ];
 
   nixpkgs = {
@@ -56,9 +58,11 @@
 
     # Python
     (pkgs.python311.withPackages (ppkgs: []))
+    pipenv
+    poetry
 
     # Go
-    go_1_20
+    go_1_22
 
     # PHP
     (pkgs.php83.buildEnv {
@@ -76,11 +80,14 @@
     ripgrep
     taskwarrior
     vit
+    dstask
+    geek-life
     tig
     jq
     yq
     tree
     glow
+    slides
     lazygit
     lazydocker
     neofetch
@@ -90,16 +97,21 @@
     nodejs_20
     gcc
     unzip
+    neovide
+
+    # Terminals
+    tilix
 
     # Browsers
     firefox
     google-chrome
     vivaldi
-    brave
 
     # Communication
     thunderbird
     slack
+    whatsapp-for-linux
+    viber
 
     # FTP
     filezilla
@@ -113,7 +125,14 @@
     ansible
     ansible-lint
     gnumake
+    jetbrains.pycharm-community
+    kubernetes-helm
     k6
+    k9s
+    kind
+    kubectl
+    kustomize
+    minikube
     teleport_14
     terraform
     vagrant
@@ -125,6 +144,11 @@
     hunspellDicts.cs_CZ
     hunspellDicts.en_US
     hunspellDicts.de_DE
+    pandoc
+    texliveFull
+    marp-cli
+    errands
+    wxmaxima
 
     # Multimedia
     gimp
@@ -132,23 +156,7 @@
 
     # Misc
     meld
-    etcher
-
-    # KDE
-    pkgs.libsForQt5.kompare
-    pkgs.libsForQt5.yakuake
-    pkgs.libsForQt5.ksshaskpass
-    pkgs.libsForQt5.akonadi
-    pkgs.libsForQt5.kdepim-runtime
-    pkgs.libsForQt5.korganizer
-    pkgs.libsForQt5.kate
-    pkgs.libsForQt5.kwrited
-    pkgs.libsForQt5.kdevelop
-    pkgs.libsForQt5.kdev-php
-    pkgs.libsForQt5.kdev-python
-    pkgs.libsForQt5.keditbookmarks
-    pkgs.krusader
-    pkgs.krename
+    ulauncher
  ];
 
   # Enable home-manager
@@ -158,6 +166,6 @@
   systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
 }
 
