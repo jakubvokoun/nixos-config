@@ -1,13 +1,7 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 
-{
-  inputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
+{ inputs, lib, config, pkgs, ... }: {
   # You can import other home-manager modules here
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
@@ -57,7 +51,7 @@
     niv
 
     # Python
-    (pkgs.python311.withPackages (ppkgs: []))
+    (pkgs.python311.withPackages (ppkgs: [ ]))
     pipenv
     poetry
 
@@ -66,7 +60,7 @@
 
     # PHP
     (pkgs.php83.buildEnv {
-      extensions = ({enabled, all}: enabled ++ (with all; []));
+      extensions = ({ enabled, all }: enabled ++ (with all; [ ]));
     })
     php83Packages.composer
 
@@ -157,7 +151,7 @@
     # Misc
     meld
     ulauncher
- ];
+  ];
 
   # Enable home-manager
   programs.home-manager.enable = true;

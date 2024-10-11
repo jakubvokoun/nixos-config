@@ -1,10 +1,4 @@
-{
-  inputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
+{ inputs, lib, config, pkgs, ... }: {
   home.packages = with pkgs; [
     pkgs.libsForQt5.kompare
     pkgs.libsForQt5.yakuake

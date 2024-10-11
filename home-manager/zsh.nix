@@ -1,12 +1,6 @@
-{
-  inputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
+{ inputs, lib, config, pkgs, ... }: {
   home.packages = [
-  #  pkgs.powerline
+    #  pkgs.powerline
     pkgs.zsh-powerlevel10k
   ];
 
@@ -18,9 +12,9 @@
 
     dotDir = ".config/zsh";
     initExtra = ''
-    # Powerlevel10k Zsh theme  
-    source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme  
-    test -f ~/.config/zsh/.p10k.zsh && source ~/.config/zsh/.p10k.zsh  
+      # Powerlevel10k Zsh theme  
+      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme  
+      test -f ~/.config/zsh/.p10k.zsh && source ~/.config/zsh/.p10k.zsh  
     '';
 
     sessionVariables = {
@@ -48,42 +42,39 @@
       gc-home = "home-manager expire-generations '-15 days'";
     };
 
-    plugins = [
-      {
-        name = "zsh-nix-shell";
-        file = "nix-shell.plugin.zsh";
-        src = pkgs.fetchFromGitHub {
-          owner = "chisui";
-          repo = "zsh-nix-shell";
-          rev = "v0.8.0";
-          sha256 = "1lzrn0n4fxfcgg65v0qhnj7wnybybqzs4adz7xsrkgmcsr0ii8b7";
-        };
-      }
-    ];
+    plugins = [{
+      name = "zsh-nix-shell";
+      file = "nix-shell.plugin.zsh";
+      src = pkgs.fetchFromGitHub {
+        owner = "chisui";
+        repo = "zsh-nix-shell";
+        rev = "v0.8.0";
+        sha256 = "1lzrn0n4fxfcgg65v0qhnj7wnybybqzs4adz7xsrkgmcsr0ii8b7";
+      };
+    }];
 
     history.size = 10000;
     history.path = "${config.xdg.dataHome}/zsh/history";
   };
 
-  /*
-  programs.powerline-go = {
-    enable = true;
-    modules = [
-      "aws"
-      "docker"
-      "venv"
-      "nix-shell"
-      #"user"
-      #"host"
-      "ssh"
-      "cwd"
-      "perms"
-      "git"
-      "hg"
-      "jobs"
-      "exit"
-      "root"
-    ];
-  };
+  /* programs.powerline-go = {
+       enable = true;
+       modules = [
+         "aws"
+         "docker"
+         "venv"
+         "nix-shell"
+         #"user"
+         #"host"
+         "ssh"
+         "cwd"
+         "perms"
+         "git"
+         "hg"
+         "jobs"
+         "exit"
+         "root"
+       ];
+     };
   */
 }

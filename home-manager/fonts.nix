@@ -1,10 +1,4 @@
-{
-  inputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
+{ inputs, lib, config, pkgs, ... }: {
   #fonts.fontconfig.enable = true;
   home.packages = [
     pkgs.font-awesome
