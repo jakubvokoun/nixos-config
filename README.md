@@ -128,7 +128,7 @@
 ### Add channel
 
 ```sh
-nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz home-manager
+nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz home-manager
 nix-channel --update
 ```
 
@@ -136,6 +136,17 @@ nix-channel --update
 
 ```sh
 nix-shell '<home-manager>' -A install
+```
+
+### Use my config
+
+```sh
+nix-shell -p git vim
+git clone https://github.com/jakubvokoun/nixos-config
+cd nixos-config
+cp -f home-manager/*.nix ~/.config/home-manager/
+vim ~/.config/home-manager/home.nix
+home-manager switch
 ```
 
 ### Mininal config
