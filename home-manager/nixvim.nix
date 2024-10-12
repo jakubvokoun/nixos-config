@@ -159,11 +159,6 @@ in {
           set_env.COLORTERM = "truecolor";
         };
       };
-
-      git-worktree = {
-        enable = true;
-        dependencies = [ plenary-nvim ];
-      };
     };
 
     viAlias = true;
