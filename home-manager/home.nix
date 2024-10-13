@@ -49,6 +49,7 @@
   home.packages = with pkgs; [
     # Nix tools
     niv
+    nixfmt-classic
 
     # Python
     (pkgs.python311.withPackages (ppkgs: [ ]))
