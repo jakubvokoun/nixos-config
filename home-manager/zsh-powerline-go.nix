@@ -1,16 +1,12 @@
 { inputs, lib, config, pkgs, ... }: {
-  home.packages = [ pkgs.zsh-powerlevel10k ];
+  home.packages = [ pkgs.powerline ];
 
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-
+    syntaxHighlighting.enable = true;
+    initExtra = ". ${pkgs.powerline}/share/zsh/powerline.zsh";
     dotDir = ".config/zsh";
-    initExtra = ''
-      # Powerlevel10k Zsh theme
-      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-      test -f ~/.config/zsh/.p10k.zsh && source ~/.config/zsh/.p10k.zsh
-    '';
 
     sessionVariables = {
       EDITOR = "nvim";
@@ -39,5 +35,25 @@
 
     history.size = 10000;
     history.path = "${config.xdg.dataHome}/zsh/history";
+  };
+
+  programs.powerline-go = {
+    enable = true;
+    modules = [
+      "aws"
+      "docker"
+      "venv"
+      "nix-shell"
+      #"user"
+      #"host"
+      "ssh"
+      "cwd"
+      "perms"
+      "git"
+      "hg"
+      "jobs"
+      "exit"
+      "root"
+    ];
   };
 }
