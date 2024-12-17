@@ -10,11 +10,14 @@
     # You can also split up your configuration and import pieces of it here:
     ./nvim.nix
     ./fonts.nix
-    ./zsh.nix
+    #./zsh.nix
+    ./zsh-powerline-go.nix
     #./starship.nix
     ./fzf.nix
     ./git.nix
     ./redshift.nix
+    ./alacritty.nix
+    ./kitty.nix
     #./plasma.nix
   ];
 
@@ -67,6 +70,7 @@
 
     # Basic CLI apps
     tmux
+    screen
     zellij
     htop
     mc
@@ -86,6 +90,20 @@
     lazygit
     lazydocker
     neofetch
+    gnupg
+    sops
+    scrot
+    pom
+    sqlite
+    mysql-client
+    mycli
+    pgcli
+    litecli
+    ranger
+    tlrc
+
+    # NodeJS
+    bun
 
     # Neovim
     lua5_4_compat
@@ -120,18 +138,30 @@
     ansible
     ansible-lint
     gnumake
-    jetbrains.pycharm-community
+    #jetbrains.pycharm-community
     kubernetes-helm
     k6
     k9s
+    kdash
     kind
+    kail
+    kns
+    kubebuilder
     kubectl
+    kubectl-ktop
+    #kubectl-graph
+    kubelogin
+    kubelogin-oidc
     kustomize
+    kubectx
+    #ktop
     minikube
     teleport_14
-    terraform
+    #terraform
+    tenv
     vagrant
     vscode
+    sublime4
 
     # Office
     libreoffice-still
@@ -144,6 +174,8 @@
     marp-cli
     errands
     wxmaxima
+    octaveFull
+    gnuplot
 
     # Multimedia
     gimp
@@ -152,6 +184,9 @@
     # Misc
     meld
     ulauncher
+    gnome-solanum
+    gnome.seahorse
+    gnome.pomodoro
   ];
 
   # Enable home-manager

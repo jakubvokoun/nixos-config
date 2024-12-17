@@ -12,6 +12,8 @@
       EDITOR = "nvim";
       VISUAL = "nvim";
       NIXPKGS_ALLOW_INSECURE = "1";
+      NIXPKGS_ALLOW_UNFREE = "1";
+      TERM = "xterm-256color";
     };
 
     shellAliases = {
@@ -44,6 +46,8 @@
       "docker"
       "venv"
       "nix-shell"
+      "kube"
+      "terraform-workspace"
       #"user"
       #"host"
       "ssh"
@@ -55,5 +59,6 @@
       "exit"
       "root"
     ];
+    modulesRight = null;
   };
 }
