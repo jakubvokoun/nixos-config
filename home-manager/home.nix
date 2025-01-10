@@ -110,7 +110,6 @@
     nodejs_20
     gcc
     unzip
-    neovide
 
     # Terminals
     tilix
@@ -124,6 +123,7 @@
     thunderbird
     slack
     whatsapp-for-linux
+    telegram-desktop
     viber
 
     # FTP
@@ -156,7 +156,7 @@
     kubectx
     #ktop
     minikube
-    teleport_14
+    teleport_15
     #terraform
     tenv
     vagrant
@@ -169,8 +169,8 @@
     hunspellDicts.cs_CZ
     hunspellDicts.en_US
     hunspellDicts.de_DE
-    pandoc
-    texliveFull
+    #pandoc
+    #texliveFull
     marp-cli
     errands
     wxmaxima
@@ -187,6 +187,7 @@
     gnome-solanum
     gnome.seahorse
     gnome.pomodoro
+    obsidian
   ];
 
   # Enable home-manager
@@ -196,6 +197,6 @@
   systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "24.05";
+  home.stateVersion = "24.11";
 }
 
