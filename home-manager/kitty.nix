@@ -16,5 +16,7 @@
       tab_powerline_style = "angled";
       enabled_layouts = "vertical";
     };
+    themeFile = "Tango_Dark";
+    environment = { "TERM" = "xterm-256color"; };
   };
 }

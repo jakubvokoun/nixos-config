@@ -8,8 +8,8 @@
     dotDir = ".config/zsh";
     initExtra = ''
       # Powerlevel10k Zsh theme
-      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-      test -f ~/.config/zsh/.p10k.zsh && source ~/.config/zsh/.p10k.zsh
+      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme  
+      test -f ~/.config/zsh/.p10k.zsh && source ~/.config/zsh/.p10k.zsh  
     '';
 
     sessionVariables = {
@@ -17,6 +17,7 @@
       VISUAL = "nvim";
       NIXPKGS_ALLOW_INSECURE = "1";
       NIXPKGS_ALLOW_UNFREE = "1";
+      TERM = "xterm-256color";
     };
 
     shellAliases = {

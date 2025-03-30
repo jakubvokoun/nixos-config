@@ -45,7 +45,7 @@
       "aws"
       "docker"
       "venv"
-      "nix-shell"
+      #"nix-shell"
       "kube"
       "terraform-workspace"
       #"user"
@@ -59,6 +59,6 @@
       "exit"
       "root"
     ];
-    modulesRight = null;
+    modulesRight = [ "nix-shell" ];
   };
 }

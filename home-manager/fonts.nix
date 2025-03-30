@@ -1,6 +1,7 @@
 { inputs, lib, config, pkgs, ... }: {
-  #fonts.fontconfig.enable = true;
+  fonts.fontconfig.enable = true;
   home.packages = [
+    pkgs.corefonts
     pkgs.font-awesome
     pkgs.jetbrains-mono
     pkgs.powerline-fonts
@@ -11,6 +12,5 @@
     pkgs.corefonts
     pkgs.nerdfonts
     pkgs.dejavu_fonts
-    #(pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 }

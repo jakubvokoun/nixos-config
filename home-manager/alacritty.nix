@@ -8,6 +8,10 @@
         bold.family = "CaskaydiaMono Nerd Font";
         italic.family = "CaskaydiaMono Nerd Font";
       };
+      env = {
+        WINIT_X11_SCALE_FACTOR = "1.0";
+        TERM = "xterm-256color";
+      };
     };
   };
 }

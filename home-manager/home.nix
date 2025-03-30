@@ -8,10 +8,12 @@
     # inputs.nix-colors.homeManagerModule
 
     # You can also split up your configuration and import pieces of it here:
-    ./nvim.nix
+    #./nvim.nix
+    ./nixvim.nix
+    ./helix.nix
     ./fonts.nix
-    #./zsh.nix
-    ./zsh-powerline-go.nix
+    ./zsh.nix
+    #./zsh-powerline-go.nix
     #./starship.nix
     ./fzf.nix
     ./git.nix
@@ -19,6 +21,14 @@
     ./alacritty.nix
     ./kitty.nix
     #./plasma.nix
+    ./i3.nix
+    ./style.nix
+    #./sway.nix
+    ./vscode.nix
+    # Experimental
+    ./zed.nix
+    ./ghostty.nix
+    ./wezterm.nix
   ];
 
   nixpkgs = {
@@ -61,26 +71,35 @@
 
     # Go
     go_1_22
+    gopls
+    delve
+
+    # Rust
+    rustc
+    rustfmt
+    gcc
+    cargo
 
     # PHP
     (pkgs.php83.buildEnv {
       extensions = ({ enabled, all }: enabled ++ (with all; [ ]));
     })
     php83Packages.composer
+    php83Packages.deployer
 
     # Basic CLI apps
     tmux
     screen
     zellij
     htop
+    btop
     mc
     duf
     bat
     ripgrep
-    taskwarrior
+    taskwarrior3
     vit
     dstask
-    geek-life
     tig
     jq
     yq
@@ -92,6 +111,7 @@
     neofetch
     gnupg
     sops
+    age
     scrot
     pom
     sqlite
@@ -101,22 +121,22 @@
     litecli
     ranger
     tlrc
+    unzip
+    shellcheck
+    shfmt
+    viddy
+    yazi
+    openssl
 
     # NodeJS
     bun
-
-    # Neovim
-    lua5_4_compat
-    nodejs_20
-    gcc
-    unzip
 
     # Terminals
     tilix
 
     # Browsers
-    firefox
     google-chrome
+    firefox
     vivaldi
 
     # Communication
@@ -138,7 +158,6 @@
     ansible
     ansible-lint
     gnumake
-    #jetbrains.pycharm-community
     kubernetes-helm
     k6
     k9s
@@ -160,7 +179,7 @@
     #terraform
     tenv
     vagrant
-    vscode
+    #vscode
     sublime4
 
     # Office
@@ -176,6 +195,8 @@
     wxmaxima
     octaveFull
     gnuplot
+    galculator
+    evince
 
     # Multimedia
     gimp
@@ -183,11 +204,14 @@
 
     # Misc
     meld
-    ulauncher
-    gnome-solanum
-    gnome.seahorse
-    gnome.pomodoro
-    obsidian
+    blueman
+    xarchiver
+
+    # 3D print
+    openscad
+    # TODO
+    #orca-slicer
+    super-slicer
   ];
 
   # Enable home-manager
@@ -198,5 +222,40 @@
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "24.11";
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    name = "DMZ-White";
+    size = 24;
+    package = pkgs.vanilla-dmz;
+  };
+
+  xdg = {
+    enable = true;
+    mimeApps = {
+      enable = true;
+      associations.added = {
+        "x-scheme-handler/http" = [ "google-chrome.desktop" ];
+        "x-scheme-handler/https" = [ "google-chrome.desktop" ];
+        "text/html" = [ "google-chrome.desktop" ];
+        "application/pdf" = "org.gnome.Evince.desktop";
+        "image/png" = [ "ristretto.desktop" "gimp.desktop" ];
+        "image/jpg" = [ "ristretto.desktop" "gimp.desktop" ];
+        "image/jepg" = [ "ristretto.desktop" "gimp.desktop" ];
+        "image/tiff" = [ "ristretto.desktop" "gimp.desktop" ];
+      };
+      defaultApplications = {
+        "x-scheme-handler/http" = [ "google-chrome.desktop" ];
+        "x-scheme-handler/https" = [ "google-chrome.desktop" ];
+        "text/html" = [ "google-chrome.desktop" ];
+        "application/pdf" = "org.gnome.Evince.desktop";
+        "image/png" = [ "ristretto.desktop" "gimp.desktop" ];
+        "image/jpg" = [ "ristretto.desktop" "gimp.desktop" ];
+        "image/jepg" = [ "ristretto.desktop" "gimp.desktop" ];
+        "image/tiff" = [ "ristretto.desktop" "gimp.desktop" ];
+      };
+    };
+  };
 }
 
