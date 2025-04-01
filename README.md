@@ -3,7 +3,7 @@
 ## SSD
 
 ```nix
-# /etc/nixos/configuration.nix 
+# /etc/nixos/configuration.nix
 
 { config, pkgs, ... }:
 
@@ -19,7 +19,7 @@
 ## Zsh
 
 ```nix
-# /etc/nixos/configuration.nix 
+# /etc/nixos/configuration.nix
 
 { config, pkgs, ... }:
 
@@ -35,7 +35,7 @@
 ## Docker
 
 ```nix
-# /etc/nixos/configuration.nix 
+# /etc/nixos/configuration.nix
 
 { config, pkgs, ... }:
 
@@ -51,7 +51,7 @@
 ## Virtualbox
 
 ```nix
-# /etc/nixos/configuration.nix 
+# /etc/nixos/configuration.nix
 
 { config, pkgs, ... }:
 
@@ -67,7 +67,7 @@
 ## Printing
 
 ```nix
-# /etc/nixos/configuration.nix 
+# /etc/nixos/configuration.nix
 
 { config, pkgs, ... }:
 
@@ -96,6 +96,26 @@
 - driver: IPP Everywhere 
 - connection: socket://printer.home
 
+### i3
+
+```nix
+# /etc/nixos/configuration.nix
+
+{ config, pkgs, ... }:
+
+{
+  # Xfce
+  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.desktopManager.xfce.enable = true;
+  services.displayManager.defaultSession = "none+i3";
+
+  # i3
+  environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
+  services.xserver.windowManager.i3.enable = true;
+  services.gnome.gnome-keyring.enable = lib.mkForce false;
+}
+```
+
 ## Home manager
 
 ### Options
@@ -105,7 +125,7 @@
 ### Set `nix.settings.allowed-users`
 
 ```nix
-# /etc/nixos/configuration.nix 
+# /etc/nixos/configuration.nix
 
 { config, pkgs, ... }:
 
@@ -132,7 +152,7 @@ nix-channel --add https://github.com/nix-community/home-manager/archive/release-
 nix-channel --update
 ```
 
-### Install Home manage
+### Install Home manager
 
 ```sh
 nix-shell '<home-manager>' -A install
