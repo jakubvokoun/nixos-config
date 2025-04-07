@@ -65,7 +65,7 @@
     nixfmt-classic
 
     # Python
-    (pkgs.python311.withPackages (ppkgs: [ ]))
+    (pkgs.python311.withPackages (ppkgs: [ ppkgs.bpython ]))
     pipenv
     poetry
 
@@ -131,9 +131,6 @@
     # NodeJS
     bun
 
-    # Terminals
-    tilix
-
     # Browsers
     google-chrome
     firefox
@@ -158,6 +155,8 @@
     ansible
     ansible-lint
     gnumake
+    jetbrains.pycharm-community
+    jetbrains.phpstorm
     kubernetes-helm
     k6
     k9s
@@ -168,18 +167,14 @@
     kubebuilder
     kubectl
     kubectl-ktop
-    #kubectl-graph
     kubelogin
     kubelogin-oidc
     kustomize
     kubectx
-    #ktop
     minikube
     teleport_15
-    #terraform
     tenv
     vagrant
-    #vscode
     sublime4
 
     # Office
@@ -188,8 +183,6 @@
     hunspellDicts.cs_CZ
     hunspellDicts.en_US
     hunspellDicts.de_DE
-    #pandoc
-    #texliveFull
     marp-cli
     errands
     wxmaxima
@@ -206,6 +199,7 @@
     meld
     blueman
     xarchiver
+    keepassxc
 
     # 3D print
     openscad
@@ -240,20 +234,20 @@
         "x-scheme-handler/https" = [ "google-chrome.desktop" ];
         "text/html" = [ "google-chrome.desktop" ];
         "application/pdf" = "org.gnome.Evince.desktop";
-        "image/png" = [ "ristretto.desktop" "gimp.desktop" ];
-        "image/jpg" = [ "ristretto.desktop" "gimp.desktop" ];
-        "image/jepg" = [ "ristretto.desktop" "gimp.desktop" ];
-        "image/tiff" = [ "ristretto.desktop" "gimp.desktop" ];
+        "image/png" = [ "org.xfce.ristretto.desktop" "gimp.desktop" ];
+        "image/jpg" = [ "org.xfce.ristretto.desktop" "gimp.desktop" ];
+        "image/jpeg" = [ "org.xfce.ristretto.desktop" "gimp.desktop" ];
+        "image/tiff" = [ "org.xfce.ristretto.desktop" "gimp.desktop" ];
       };
       defaultApplications = {
         "x-scheme-handler/http" = [ "google-chrome.desktop" ];
         "x-scheme-handler/https" = [ "google-chrome.desktop" ];
         "text/html" = [ "google-chrome.desktop" ];
         "application/pdf" = "org.gnome.Evince.desktop";
-        "image/png" = [ "ristretto.desktop" "gimp.desktop" ];
-        "image/jpg" = [ "ristretto.desktop" "gimp.desktop" ];
-        "image/jepg" = [ "ristretto.desktop" "gimp.desktop" ];
-        "image/tiff" = [ "ristretto.desktop" "gimp.desktop" ];
+        "image/png" = [ "org.xfce.ristretto.desktop" ];
+        "image/jpg" = [ "org.xfce.ristretto.desktop" ];
+        "image/jpeg" = [ "org.xfce.ristretto.desktop" ];
+        "image/tiff" = [ "org.xfce.ristretto.desktop" ];
       };
     };
   };

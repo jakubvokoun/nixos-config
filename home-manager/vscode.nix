@@ -16,6 +16,8 @@
       "terminal.integrated.fontFamily" = "CaskaydiaMono Nerd Font";
       "terminal.integrated.fontSize" = 16;
 
+      "github.copilot.enable" = { "*" = false; };
+
       "workbench.fontAliasing" = "antialiased";
       "workbench.colorTheme" = "Catppuccin Mocha";
       "workbench.iconTheme" = "catppuccin-mocha";

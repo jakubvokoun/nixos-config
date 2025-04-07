@@ -3,7 +3,6 @@
     enable = true;
     config = {
       modifier = "Mod4";
-      #terminal = "alacritty";
       terminal = "kitty";
       fonts = {
         names = [ "DejaVu Sans Mono" ];
@@ -35,6 +34,13 @@
       # Reset wallpaper
       bindsym Mod4+b exec --no-startup-id nitrogen --restore
 
+      # Run rofi -show drun
+      bindsym Mod1+space exec --no-startup-id rofi -show drun
+
+      # Run rofi -show window
+      #bindsym Mod1+Tab exec --no-startup-id rofi -show window
+      bindsym Mod1+Tab exec --no-startup-id rofi -modi combi -combi-modi window -show combi
+
       # Mouse focus
       focus_follows_mouse no
 
@@ -58,6 +64,7 @@
 
   home.packages = with pkgs; [
     dmenu
+    rofi
     i3status
     i3lock
     xss-lock
@@ -70,11 +77,6 @@
   services.dunst.enable = true;
 
   services.picom.enable = true;
-
-  #services.gnome-keyring = {
-  #  enable = true;
-  #  components = [ "pkcs11" "secrets" "ssh" ];
-  #};
 
   xsession = {
     enable = true;
