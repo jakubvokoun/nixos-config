@@ -18,6 +18,13 @@
 
       "github.copilot.enable" = { "*" = false; };
 
+      "files.associations" = {
+        "**/roles/**/tasks/*.yml" = "ansible";
+        "**/roles/**/vars/*.yml" = "ansible";
+        "**/roles/**/defaults/*.yml" = "ansible";
+        "**/playbooks/**/*.yml" = "ansible";
+      };
+
       "workbench.fontAliasing" = "antialiased";
       "workbench.colorTheme" = "Catppuccin Mocha";
       "workbench.iconTheme" = "catppuccin-mocha";
@@ -43,6 +50,7 @@
         eamodio.gitlens
         foxundermoon.shell-format
         rust-lang.rust-analyzer
+        editorconfig.editorconfig
         catppuccin.catppuccin-vsc
         catppuccin.catppuccin-vsc-icons
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [ ];

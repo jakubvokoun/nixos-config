@@ -203,8 +203,6 @@
 
     # 3D print
     openscad
-    # TODO
-    #orca-slicer
     super-slicer
   ];
 
