@@ -15,7 +15,8 @@ in {
     vimAlias = true;
 
     # Settings
-    colorschemes.nightfox.enable = true;
+    colorschemes.catppuccin.enable = true;
+    colorschemes.catppuccin.settings = { flavour = "mocha"; };
 
     globals = { mapleader = " "; };
 

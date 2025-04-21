@@ -10,8 +10,7 @@
       "editor.minimap.enabled" = false;
       "editor.renderWhitespace" = "all";
 
-      "telemetry.enableTelemetry" = false;
-      "telemetry.enableCrashReporter" = false;
+      "telemetry.telemetryLevel" = "off";
 
       "terminal.integrated.fontFamily" = "CaskaydiaMono Nerd Font";
       "terminal.integrated.fontSize" = 16;
@@ -25,7 +24,6 @@
         "**/playbooks/**/*.yml" = "ansible";
       };
 
-      "workbench.fontAliasing" = "antialiased";
       "workbench.colorTheme" = "Catppuccin Mocha";
       "workbench.iconTheme" = "catppuccin-mocha";
     };
@@ -53,6 +51,19 @@
         editorconfig.editorconfig
         catppuccin.catppuccin-vsc
         catppuccin.catppuccin-vsc-icons
-      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [ ];
+      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "latte";
+          publisher = "kasik96";
+          version = "0.18.0";
+          sha256 = "sha256-gxnjUUtkeTlbASCoBMbyGuVEtTvp027Gx5+ngHwEms0=";
+        }
+        {
+          name = "vscode-laravel";
+          publisher = "laravel";
+          version = "1.0.7";
+          sha256 = "sha256-HPvuEYCk59tPUCTKqX5tOWuhXhsHim4+fOrZoreRB8Q=";
+        }
+      ];
   };
 }
