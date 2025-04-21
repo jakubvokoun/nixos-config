@@ -23,7 +23,7 @@
     #./plasma.nix
     ./i3.nix
     ./style.nix
-    #./sway.nix
+    #./wayland
     ./vscode.nix
     # Experimental
     ./zed.nix
