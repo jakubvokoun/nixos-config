@@ -16,7 +16,9 @@ in {
 
     # Settings
     colorschemes.catppuccin.enable = true;
-    colorschemes.catppuccin.settings = { flavour = "mocha"; };
+    colorschemes.catppuccin.settings = {
+      flavour = "mocha";
+    };
 
     globals = { mapleader = " "; };
 

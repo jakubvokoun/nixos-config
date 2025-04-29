@@ -22,6 +22,8 @@
         "**/roles/**/vars/*.yml" = "ansible";
         "**/roles/**/defaults/*.yml" = "ansible";
         "**/playbooks/**/*.yml" = "ansible";
+        "site.yml" = "ansible";
+        "**/site.yml" = "ansible";
       };
 
       "workbench.colorTheme" = "Catppuccin Mocha";
@@ -29,6 +31,7 @@
     };
     extensions = with pkgs.vscode-extensions;
       [
+        # Extensions
         golang.go
         ms-python.python
         ms-python.pylint
@@ -49,6 +52,9 @@
         foxundermoon.shell-format
         rust-lang.rust-analyzer
         editorconfig.editorconfig
+        mikestead.dotenv
+        matthewpi.caddyfile-support
+        # Themes
         catppuccin.catppuccin-vsc
         catppuccin.catppuccin-vsc-icons
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [

@@ -13,6 +13,7 @@
     ./helix.nix
     ./fonts.nix
     ./zsh.nix
+    ./tmux.nix
     #./zsh-powerline-go.nix
     #./starship.nix
     ./fzf.nix
@@ -88,7 +89,6 @@
     php83Packages.deployer
 
     # Basic CLI apps
-    tmux
     screen
     zellij
     htop

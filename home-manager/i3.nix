@@ -72,6 +72,7 @@
     pavucontrol
     libnotify
     nitrogen
+    nemo
   ];
 
   services.dunst.enable = true;
