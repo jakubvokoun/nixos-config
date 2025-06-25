@@ -1,17 +1,20 @@
 { inputs, lib, config, pkgs, ... }: {
-  home.packages = [ pkgs.zsh-powerlevel10k ];
-
   programs.zsh = {
     enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
-
     dotDir = ".config/zsh";
     initExtra = ''
-      # Powerlevel10k Zsh theme
-      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme  
-      test -f ~/.config/zsh/.p10k.zsh && source ~/.config/zsh/.p10k.zsh  
+      # Nix shell
+      if [[ -n "$IN_NIX_SHELL" ]]; then
+        label="nix-shell"
+        if [[ "$name" != "$label" ]]; then
+          label="$label:$name"
+        fi
+        export PS1=$'%{$fg[green]%}'"$label $PS1"
+        unset label
+      fi
     '';
 
     sessionVariables = {
@@ -43,6 +46,38 @@
         sha256 = "1lzrn0n4fxfcgg65v0qhnj7wnybybqzs4adz7xsrkgmcsr0ii8b7";
       };
     }];
+
+    oh-my-zsh = {
+      enable = true;
+      theme = "robbyrussell";
+      plugins = [
+        "aws"
+        "bun"
+        "composer"
+        "docker"
+        "docker-compose"
+        "fzf"
+        "git"
+        "golang"
+        "helm"
+        "history"
+        "kind"
+        "kubectl"
+        "kubectx"
+        "laravel"
+        "minikube"
+        "pip"
+        "poetry"
+        "pre-commit"
+        "python"
+        "rust"
+        "shrink-path"
+        "ssh"
+        "sudo"
+        "terraform"
+        "vagrant"
+      ];
+    };
 
     history.size = 10000;
     history.path = "${config.xdg.dataHome}/zsh/history";

@@ -16,9 +16,7 @@ in {
 
     # Settings
     colorschemes.catppuccin.enable = true;
-    colorschemes.catppuccin.settings = {
-      flavour = "mocha";
-    };
+    colorschemes.catppuccin.settings = { flavour = "mocha"; };
 
     globals = { mapleader = " "; };
 
@@ -163,6 +161,7 @@ in {
           docker_compose_language_service.enable = true;
           gopls.enable = true;
           ansiblels.enable = true;
+          lua_ls.enable = true;
           pylsp.enable = true;
           #terraformls.enable = true;
           terraform_lsp.enable = true;

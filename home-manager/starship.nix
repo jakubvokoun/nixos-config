@@ -2,8 +2,14 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
+    syntaxHighlighting.enable = true;
+    autosuggestion.enable = true;
 
     initExtra = ''
+      autoload -Uz +X compinit && compinit
+      zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+      zstyle ':completion:*' menu select
+
       eval "$(starship init zsh)"
     '';
 
@@ -21,6 +27,9 @@
       update-home = "sudo nix-channel --update && home-manager switch";
       gc-nixos = "sudo nix-collect-garbage --delete-older-than 15d";
       gc-home = "home-manager expire-generations '-15 days'";
+      git-wt-switch = "cd $(git worktree list | fzf | awk '{ print $1 }')";
+      git-branch-switch =
+        "git checkout $(git branch | fzf | sed 's/[*+]//' | awk '{ print $1 }')";
     };
 
     plugins = [{
@@ -44,19 +53,19 @@
     settings = {
       add_newline = false;
       format = lib.concatStrings [
-        #"$username"
-        #"$hostname"
         "$directory"
         "$git_branch"
         "$git_commit"
         "$git_state"
         "$git_status"
+        "$git_metrics"
         "$package"
         "$python"
         "$golang"
         "$kubernetes"
         "$aws"
         "$bun"
+        "$nodejs"
         "$docker_context"
         "$helm"
         "$php"

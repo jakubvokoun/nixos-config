@@ -26,6 +26,8 @@
         "**/site.yml" = "ansible";
       };
 
+      "[templ]" = { "editor.defaultFormatter" = "a-h.templ"; };
+
       "workbench.colorTheme" = "Catppuccin Mocha";
       "workbench.iconTheme" = "catppuccin-mocha";
     };
@@ -47,6 +49,7 @@
         bmewburn.vscode-intelephense-client
         tim-koehler.helm-intellisense
         hashicorp.terraform
+        hashicorp.hcl
         coolbear.systemd-unit-file
         eamodio.gitlens
         foxundermoon.shell-format
@@ -54,6 +57,7 @@
         editorconfig.editorconfig
         mikestead.dotenv
         matthewpi.caddyfile-support
+        nefrob.vscode-just-syntax
         # Themes
         catppuccin.catppuccin-vsc
         catppuccin.catppuccin-vsc-icons
@@ -69,6 +73,18 @@
           publisher = "laravel";
           version = "1.0.7";
           sha256 = "sha256-HPvuEYCk59tPUCTKqX5tOWuhXhsHim4+fOrZoreRB8Q=";
+        }
+        {
+          name = "vscode-blade-formatter";
+          publisher = "shufo";
+          version = "0.24.6";
+          sha256 = "sha256-qIqKX85LBTahbwpt7Ko9v542Xy3W1qbUflMCPwNcJHQ=";
+        }
+        {
+          name = "templ";
+          publisher = "a-h";
+          version = "0.0.35";
+          sha256 = "sha256-WIBJorljcnoPUrQCo1eyFb6vQ5lcxV0i+QJlJdzZYE0=";
         }
       ];
   };

@@ -3,5 +3,6 @@
     enable = true;
     userName = "Jakub Vokoun";
     userEmail = "jakub.vokoun@gmail.com";
+    lfs = { enable = true; };
   };
 }

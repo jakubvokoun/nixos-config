@@ -22,6 +22,9 @@
       update-home = "sudo nix-channel --update && home-manager switch";
       gc-nixos = "sudo nix-collect-garbage --delete-older-than 15d";
       gc-home = "home-manager expire-generations '-15 days'";
+      git-wt-switch = "cd $(git worktree list | fzf | awk '{ print $1 }')";
+      git-branch-switch =
+        "git checkout $(git branch | fzf | sed 's/[*+]//' | awk '{ print $1 }')";
     };
 
     plugins = [{
@@ -45,7 +48,7 @@
       "aws"
       "docker"
       "venv"
-      #"nix-shell"
+      "nix-shell"
       "kube"
       "terraform-workspace"
       #"user"
@@ -59,6 +62,6 @@
       "exit"
       "root"
     ];
-    modulesRight = [ "nix-shell" ];
+    #modulesRight = [ "nix-shell" ];
   };
 }

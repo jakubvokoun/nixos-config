@@ -8,28 +8,17 @@
     # inputs.nix-colors.homeManagerModule
 
     # You can also split up your configuration and import pieces of it here:
-    #./nvim.nix
-    ./nixvim.nix
-    ./helix.nix
     ./fonts.nix
-    ./zsh.nix
-    ./tmux.nix
-    #./zsh-powerline-go.nix
-    #./starship.nix
     ./fzf.nix
-    ./git.nix
-    ./redshift.nix
-    ./alacritty.nix
-    ./kitty.nix
-    #./plasma.nix
-    ./i3.nix
-    ./style.nix
-    #./wayland
-    ./vscode.nix
-    # Experimental
-    ./zed.nix
     ./ghostty.nix
-    ./wezterm.nix
+    ./git.nix
+    ./helix.nix
+    ./nixvim.nix
+    ./redshift.nix
+    ./starship.nix
+    ./tmux.nix
+    ./vscode.nix
+
   ];
 
   nixpkgs = {
@@ -74,12 +63,7 @@
     go_1_22
     gopls
     delve
-
-    # Rust
-    rustc
-    rustfmt
-    gcc
-    cargo
+    templ
 
     # PHP
     (pkgs.php83.buildEnv {
@@ -90,7 +74,6 @@
 
     # Basic CLI apps
     screen
-    zellij
     htop
     btop
     mc
@@ -108,7 +91,7 @@
     slides
     lazygit
     lazydocker
-    neofetch
+    fastfetch
     gnupg
     sops
     age
@@ -129,11 +112,13 @@
     openssl
 
     # NodeJS
+    nodejs
     bun
 
     # Browsers
     google-chrome
     firefox
+    librewolf
     vivaldi
 
     # Communication
@@ -155,6 +140,7 @@
     ansible
     ansible-lint
     gnumake
+    just
     jetbrains.pycharm-community
     jetbrains.phpstorm
     kubernetes-helm
@@ -176,6 +162,10 @@
     tenv
     vagrant
     sublime4
+    dig
+    dogdns
+    packer
+    geany
 
     # Office
     libreoffice-still
@@ -184,26 +174,30 @@
     hunspellDicts.en_US
     hunspellDicts.de_DE
     marp-cli
-    errands
-    wxmaxima
-    octaveFull
     gnuplot
     galculator
-    evince
 
     # Multimedia
     gimp
     audacity
+    mpv
+    simplescreenrecorder
+    spot
 
     # Misc
     meld
     blueman
-    xarchiver
     keepassxc
+    seahorse
+    obsidian
 
     # 3D print
     openscad
     super-slicer
+
+    # Terminals
+    tilix
+    ptyxis
   ];
 
   # Enable home-manager
@@ -215,39 +209,11 @@
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "24.11";
 
-  home.pointerCursor = {
-    gtk.enable = true;
-    x11.enable = true;
-    name = "DMZ-White";
-    size = 24;
-    package = pkgs.vanilla-dmz;
-  };
-
-  xdg = {
+  xsession = {
     enable = true;
-    mimeApps = {
-      enable = true;
-      associations.added = {
-        "x-scheme-handler/http" = [ "google-chrome.desktop" ];
-        "x-scheme-handler/https" = [ "google-chrome.desktop" ];
-        "text/html" = [ "google-chrome.desktop" ];
-        "application/pdf" = "org.gnome.Evince.desktop";
-        "image/png" = [ "org.xfce.ristretto.desktop" "gimp.desktop" ];
-        "image/jpg" = [ "org.xfce.ristretto.desktop" "gimp.desktop" ];
-        "image/jpeg" = [ "org.xfce.ristretto.desktop" "gimp.desktop" ];
-        "image/tiff" = [ "org.xfce.ristretto.desktop" "gimp.desktop" ];
-      };
-      defaultApplications = {
-        "x-scheme-handler/http" = [ "google-chrome.desktop" ];
-        "x-scheme-handler/https" = [ "google-chrome.desktop" ];
-        "text/html" = [ "google-chrome.desktop" ];
-        "application/pdf" = "org.gnome.Evince.desktop";
-        "image/png" = [ "org.xfce.ristretto.desktop" ];
-        "image/jpg" = [ "org.xfce.ristretto.desktop" ];
-        "image/jpeg" = [ "org.xfce.ristretto.desktop" ];
-        "image/tiff" = [ "org.xfce.ristretto.desktop" ];
-      };
-    };
+    profileExtra = ''
+      export $(${pkgs.gnome-keyring}/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+    '';
   };
 }
 
