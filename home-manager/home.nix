@@ -60,7 +60,7 @@
     poetry
 
     # Go
-    go_1_22
+    go_1_23
     gopls
     delve
     templ
@@ -158,7 +158,7 @@
     kustomize
     kubectx
     minikube
-    teleport_15
+    teleport_16
     tenv
     vagrant
     sublime4
@@ -190,6 +190,7 @@
     keepassxc
     seahorse
     obsidian
+    sourcegit
 
     # 3D print
     openscad

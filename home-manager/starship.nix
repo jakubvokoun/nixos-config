@@ -1,16 +1,19 @@
 { inputs, lib, config, pkgs, ... }: {
+  home.packages = [ pkgs.bat-extras.batman ];
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
 
-    initExtra = ''
+    initContent = ''
       autoload -Uz +X compinit && compinit
       zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
       zstyle ':completion:*' menu select
 
       eval "$(starship init zsh)"
+      eval "$(batman --export-env)"
     '';
 
     sessionVariables = {
