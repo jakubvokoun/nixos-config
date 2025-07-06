@@ -13,6 +13,7 @@
     ./ghostty.nix
     ./git.nix
     ./helix.nix
+    ./kitty.nix
     ./nixvim.nix
     ./redshift.nix
     ./starship.nix
@@ -139,10 +140,9 @@
     aws-vault
     ansible
     ansible-lint
+    devtoolbox
     gnumake
     just
-    jetbrains.pycharm-community
-    jetbrains.phpstorm
     kubernetes-helm
     k6
     k9s
@@ -185,6 +185,7 @@
     spot
 
     # Misc
+    alpaca
     meld
     blueman
     keepassxc
@@ -199,6 +200,11 @@
     # Terminals
     tilix
     ptyxis
+
+    # XDG
+    xdg-desktop-portal
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-gnome
   ];
 
   # Enable home-manager
@@ -215,6 +221,14 @@
     profileExtra = ''
       export $(${pkgs.gnome-keyring}/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
     '';
+  };
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    name = "Bibata-Modern-Classic";
+    size = 24;
+    package = pkgs.bibata-cursors;
   };
 }
 

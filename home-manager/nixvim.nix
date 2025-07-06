@@ -2,7 +2,7 @@
 let
   nixvim = import (builtins.fetchGit {
     url = "https://github.com/nix-community/nixvim";
-    ref = "nixos-24.11";
+    ref = "nixos-25.05";
   });
 in {
   imports = [ nixvim.homeManagerModules.nixvim ];
@@ -163,15 +163,15 @@ in {
           ansiblels.enable = true;
           lua_ls.enable = true;
           pylsp.enable = true;
-          #terraformls.enable = true;
           terraform_lsp.enable = true;
-          #rnix.enable = true;
+          nixd.enable = true;
           rust_analyzer = {
             enable = true;
             installCargo = true;
             installRustc = true;
             installRustfmt = true;
           };
+          just.enable = true;
         };
       };
 
@@ -227,6 +227,8 @@ in {
       web-devicons.enable = true;
 
       render-markdown.enable = true;
+
+      zen-mode.enable = true;
     };
   };
 }

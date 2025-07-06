@@ -32,6 +32,20 @@
       bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
       bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xclip -i -sel clipboard"
       bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "xclip -i -sel clipboard"
+
+      # Popups
+      bind C-n display-popup -E 'bash -i -c "read -p \"Session name: \" name; tmux new-session -d -s \$name && tmux switch-client -t \$name"'
+      bind C-s display-popup -E "tmux list-sessions | sed -E 's/:.*$//' | grep -v \"^$(tmux display-message -p '#S')\$\" | fzf --reverse | xargs tmux switch-client -t"
+      bind C-g display-popup \
+        -d "#{pane_current_path}" \
+        -w 80% \
+        -h 80% \
+        -E "lazygit"
+      bind C-f display-popup \
+        -d "#{pane_current_path}" \
+        -w 80% \
+        -h 80% \
+        -E "yazi"
     '';
   };
 
