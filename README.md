@@ -116,6 +116,29 @@
 }
 ```
 
+### Garbage collection
+
+```nix
+# /etc/nixos/configuration.nix
+
+{ config, pkgs, ... }:
+
+{
+  # ...
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 15d";
+  };
+}
+```
+
+```sh
+nix-store --gc
+nix-collect-garbage -d
+sudo nix-collect-garbage -d
+```
+
 ## Home manager
 
 ### Options
