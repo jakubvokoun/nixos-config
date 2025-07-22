@@ -56,7 +56,15 @@
     nixfmt-classic
 
     # Python
-    (pkgs.python311.withPackages (ppkgs: [ ppkgs.bpython ]))
+    (pkgs.python313.withPackages (ppkgs: [
+      ppkgs.bpython
+      ppkgs.ipython
+      ppkgs.pip-tools
+      ppkgs.numpy
+      ppkgs.pandas
+      ppkgs.torch
+      ppkgs.jupyter
+    ]))
     pipenv
     poetry
 
@@ -111,6 +119,7 @@
     viddy
     yazi
     openssl
+    ast-grep
 
     # NodeJS
     nodejs
@@ -181,17 +190,18 @@
     gimp
     audacity
     mpv
+    vlc
     simplescreenrecorder
     spot
 
     # Misc
-    alpaca
     meld
     blueman
     keepassxc
     seahorse
     obsidian
     sourcegit
+    albert
 
     # 3D print
     openscad
