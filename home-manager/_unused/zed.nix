@@ -67,6 +67,7 @@
           "**playbook*.yml"
           "**playbook*.yaml"
         ];
+        Dockerfile = [ "Dockerfile.*" ];
       };
     };
   };

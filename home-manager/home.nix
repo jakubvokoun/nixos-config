@@ -19,7 +19,7 @@
     ./starship.nix
     ./tmux.nix
     ./vscode.nix
-
+    ./cinnamon.nix
   ];
 
   nixpkgs = {
@@ -71,8 +71,10 @@
     # Go
     go_1_23
     gopls
+    gotools
     delve
     templ
+    air
 
     # PHP
     (pkgs.php83.buildEnv {
@@ -175,6 +177,7 @@
     dogdns
     packer
     geany
+    checkov
 
     # Office
     libreoffice-still
@@ -202,14 +205,11 @@
     obsidian
     sourcegit
     albert
+    pandoc
 
     # 3D print
     openscad
     super-slicer
-
-    # Terminals
-    tilix
-    ptyxis
 
     # XDG
     xdg-desktop-portal
@@ -231,14 +231,6 @@
     profileExtra = ''
       export $(${pkgs.gnome-keyring}/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
     '';
-  };
-
-  home.pointerCursor = {
-    gtk.enable = true;
-    x11.enable = true;
-    name = "Bibata-Modern-Classic";
-    size = 24;
-    package = pkgs.bibata-cursors;
   };
 }
 

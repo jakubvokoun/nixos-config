@@ -171,7 +171,7 @@ sudo nix-collect-garbage -d
 ### Add channel
 
 ```sh
-nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
+nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz home-manager
 nix-channel --update
 ```
 
@@ -244,4 +244,12 @@ Taken from: https://github.com/Misterio77/nix-starter-configs
     Install = { WantedBy = [ "timers.target" ]; };
   };
 }
+```
+
+### `dconf`
+
+- https://github.com/nix-community/dconf2nix
+
+```sh
+dconf dump / | dconf2nix > dconf.nix
 ```

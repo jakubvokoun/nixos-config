@@ -43,6 +43,7 @@
           ms-vscode-remote.remote-containers
           ms-azuretools.vscode-docker
           ms-kubernetes-tools.vscode-kubernetes-tools
+          ms-toolsai.jupyter
           redhat.vscode-yaml
           redhat.ansible
           esbenp.prettier-vscode
