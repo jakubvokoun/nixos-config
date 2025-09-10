@@ -20,6 +20,7 @@
     ./tmux.nix
     ./vscode.nix
     ./cinnamon.nix
+    ./ulauncher.nix
   ];
 
   nixpkgs = {
@@ -52,8 +53,8 @@
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
     # Nix tools
-    niv
     nixfmt-classic
+    compose2nix
 
     # Python
     (pkgs.python313.withPackages (ppkgs: [
@@ -84,16 +85,13 @@
     php83Packages.deployer
 
     # Basic CLI apps
-    screen
     htop
     btop
     mc
     duf
     bat
     ripgrep
-    taskwarrior3
-    vit
-    dstask
+    fd
     tig
     jq
     yq
@@ -195,7 +193,6 @@
     mpv
     vlc
     simplescreenrecorder
-    spot
 
     # Misc
     meld
@@ -204,8 +201,8 @@
     seahorse
     obsidian
     sourcegit
-    albert
     pandoc
+    cheese
 
     # 3D print
     openscad

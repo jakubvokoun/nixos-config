@@ -52,6 +52,11 @@
     history.path = "${config.xdg.dataHome}/zsh/history";
   };
 
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
