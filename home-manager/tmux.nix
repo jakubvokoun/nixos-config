@@ -6,6 +6,11 @@
     historyLimit = 100000;
     keyMode = "vi";
     extraConfig = ''
+      # Pane splits & new window should open to the same path as the current pane
+      bind '"' split-window -v -c "#{pane_current_path}"
+      bind % split-window -h -c "#{pane_current_path}"
+      bind c new-window -c "#{pane_current_path}"
+
       # Catppuccin Mocha tmux status line (lighter gray)
       set -g status-bg '#45475a'
       set -g status-fg '#cdd6f4'
