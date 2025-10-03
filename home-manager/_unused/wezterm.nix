@@ -11,7 +11,7 @@
           top = 0,
           bottom = 0,
         },
-        color_scheme = "Nightfox",
+        color_scheme = "Tango (terminal.sexy)",
         hide_tab_bar_if_only_one_tab = true,
         audible_bell = "Disabled"
       };

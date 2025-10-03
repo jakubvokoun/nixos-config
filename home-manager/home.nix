@@ -21,6 +21,7 @@
     ./vscode.nix
     ./cinnamon.nix
     ./ulauncher.nix
+    ./zellij.nix
   ];
 
   nixpkgs = {
@@ -120,6 +121,9 @@
     yazi
     openssl
     ast-grep
+    systemctl-tui
+    claude-code
+    dive
 
     # NodeJS
     nodejs
@@ -203,6 +207,7 @@
     sourcegit
     pandoc
     cheese
+    gnome-pomodoro
 
     # 3D print
     openscad

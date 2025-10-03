@@ -14,6 +14,21 @@
 
       eval "$(starship init zsh)"
       eval "$(batman --export-env)"
+
+      # Function to update package versions in Ansible YAML files
+      update-ansible-pkg-version() {
+        if [[ $# -ne 2 ]]; then
+          echo "Usage: update-ansible-pkg-version <package-name> <new-version>"
+          return 1
+        fi
+        
+        local package_name="$1"
+        local new_version="$2"
+        
+        # Find files containing the package name and update them
+        grep -r -l "^[[:space:]]*-[[:space:]]*$package_name=" . --include="*.yml" --include="*.yaml" 2>/dev/null | \
+        xargs -r sed -i "s/^\\([[:space:]]*-[[:space:]]*$package_name=\\).*$/\\1$new_version/"
+      }
     '';
 
     sessionVariables = {
@@ -53,6 +68,11 @@
   };
 
   programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.carapace = {
     enable = true;
     enableZshIntegration = true;
   };
