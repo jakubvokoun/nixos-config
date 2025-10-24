@@ -5,7 +5,7 @@
       userSettings = {
         "editor.fontFamily" = "CaskaydiaMono Nerd Font";
         "editor.fontLigatures" = true;
-        "editor.fontSize" = 16;
+        "editor.fontSize" = 14;
         "editor.formatOnSave" = false;
         "editor.lineNumbers" = "on";
         "editor.minimap.enabled" = false;
@@ -14,7 +14,7 @@
         "telemetry.telemetryLevel" = "off";
 
         "terminal.integrated.fontFamily" = "CaskaydiaMono Nerd Font";
-        "terminal.integrated.fontSize" = 16;
+        "terminal.integrated.fontSize" = 14;
 
         "github.copilot.enable" = { "*" = false; };
 
@@ -29,8 +29,8 @@
 
         "[templ]" = { "editor.defaultFormatter" = "a-h.templ"; };
 
-        "workbench.colorTheme" = "Catppuccin Mocha";
-        "workbench.iconTheme" = "catppuccin-mocha";
+        "workbench.colorTheme" = "Catppuccin Latte";
+        "workbench.iconTheme" = "catppuccin-latte";
       };
       extensions = with pkgs.vscode-extensions;
         [
@@ -87,6 +87,12 @@
             publisher = "a-h";
             version = "0.0.35";
             sha256 = "sha256-WIBJorljcnoPUrQCo1eyFb6vQ5lcxV0i+QJlJdzZYE0=";
+          }
+          {
+            name = "claude-code";
+            publisher = "anthropic";
+            version = "2.0.14";
+            sha256 = "sha256-+3GkCBfAAIaORU+qKGv6OmN2w9aXt3QKMgWtyLMJUS0=";
           }
         ];
     };

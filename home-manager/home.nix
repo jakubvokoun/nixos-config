@@ -116,6 +116,7 @@
     tlrc
     unzip
     shellcheck
+    shellspec
     shfmt
     viddy
     yazi

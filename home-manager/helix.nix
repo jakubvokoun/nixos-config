@@ -4,6 +4,7 @@
     settings = {
       theme = "catppuccin_mocha";
       editor = {
+        soft-wrap = { enable = true; };
         whitespace = {
           render = {
             space = "all";

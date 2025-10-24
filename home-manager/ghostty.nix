@@ -2,7 +2,7 @@
   programs.ghostty = {
     enable = true;
     settings = {
-      font-size = 14;
+      font-size = 12;
       font-family = "CaskaydiaMono Nerd Font";
       theme = "Builtin Tango Dark";
       window-decoration = "server";
