@@ -10,7 +10,6 @@
     # You can also split up your configuration and import pieces of it here:
     ./fonts.nix
     ./fzf.nix
-    ./ghostty.nix
     ./git.nix
     ./helix.nix
     ./kitty.nix
