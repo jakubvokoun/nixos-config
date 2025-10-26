@@ -15,7 +15,7 @@
     ./kitty.nix
     ./nixvim.nix
     ./redshift.nix
-    ./starship.nix
+    ./zsh-minimal.nix
     ./tmux.nix
     ./vscode.nix
     ./cinnamon.nix

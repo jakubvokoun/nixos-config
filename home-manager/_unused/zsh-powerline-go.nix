@@ -1,12 +1,37 @@
 { inputs, lib, config, pkgs, ... }: {
-  home.packages = [ pkgs.powerline ];
+  #home.packages = [ pkgs.powerline ];
+  home.packages = [ pkgs.bat-extras.batman ];
 
   programs.zsh = {
     enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
-    initExtra = ". ${pkgs.powerline}/share/zsh/powerline.zsh";
+    autosuggestion.enable = true;
+    #initExtra = ". ${pkgs.powerline}/share/zsh/powerline.zsh";
     dotDir = ".config/zsh";
+
+    initContent = ''
+      autoload -Uz +X compinit && compinit
+      zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+      zstyle ':completion:*' menu select
+
+      eval "$(batman --export-env)"
+
+      # Function to update package versions in Ansible YAML files
+      update-ansible-pkg-version() {
+        if [[ $# -ne 2 ]]; then
+          echo "Usage: update-ansible-pkg-version <package-name> <new-version>"
+          return 1
+        fi
+        
+        local package_name="$1"
+        local new_version="$2"
+        
+        # Find files containing the package name and update them
+        grep -r -l "^[[:space:]]*-[[:space:]]*$package_name=" . --include="*.yml" --include="*.yaml" 2>/dev/null | \
+        xargs -r sed -i "s/^\\([[:space:]]*-[[:space:]]*$package_name=\\).*$/\\1$new_version/"
+      }
+    '';
 
     sessionVariables = {
       EDITOR = "nvim";
@@ -14,6 +39,8 @@
       NIXPKGS_ALLOW_INSECURE = "1";
       NIXPKGS_ALLOW_UNFREE = "1";
       TERM = "xterm-256color";
+      XCURSOR_THEME = "Bibata-Modern-Classic";
+      XCURSOR_SIZE = "24";
     };
 
     shellAliases = {
@@ -42,6 +69,16 @@
     history.path = "${config.xdg.dataHome}/zsh/history";
   };
 
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.carapace = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   programs.powerline-go = {
     enable = true;
     modules = [
@@ -63,5 +100,11 @@
       "root"
     ];
     #modulesRight = [ "nix-shell" ];
+    settings = {
+      newline = true;
+      hostname-only-if-ssh = true;
+      numeric-exit-codes = true;
+      cwd-max-depth = 2;
+    };
   };
 }
