@@ -20,6 +20,8 @@ in {
 
     globals = { mapleader = " "; };
 
+    extraPlugins = [ pkgs.vimPlugins.vim-caddyfile ];
+
     opts = {
       number = true;
 
@@ -239,6 +241,18 @@ in {
       tiny-inline-diagnostic = {
         enable = true;
         settings = { preset = "classic"; };
+      };
+
+      claude-code = {
+        enable = true;
+        settings = {
+          window = {
+            hide_numbers = false;
+            hide_signcolumn = false;
+            position = "vertical";
+            split_ratio = 0.5;
+          };
+        };
       };
     };
   };

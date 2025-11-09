@@ -13,6 +13,7 @@
     ./git.nix
     ./helix.nix
     ./kitty.nix
+    ./wezterm.nix
     ./nixvim.nix
     ./redshift.nix
     ./zsh-minimal.nix
@@ -21,6 +22,7 @@
     ./cinnamon.nix
     ./ulauncher.nix
     ./zellij.nix
+    ./keybase.nix
   ];
 
   nixpkgs = {
@@ -124,6 +126,7 @@
     systemctl-tui
     claude-code
     dive
+    openvpn
 
     # NodeJS
     nodejs
@@ -180,6 +183,7 @@
     packer
     geany
     checkov
+    djlint
 
     # Office
     libreoffice-still

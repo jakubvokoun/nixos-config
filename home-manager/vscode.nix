@@ -3,8 +3,8 @@
     enable = true;
     profiles.default = {
       userSettings = {
-        "editor.fontFamily" = "CaskaydiaMono Nerd Font";
-        "editor.fontLigatures" = true;
+        "editor.fontFamily" = "JetBrainsMono Nerd Font";
+        "editor.fontLigatures" = false;
         "editor.fontSize" = 14;
         "editor.formatOnSave" = false;
         "editor.lineNumbers" = "on";
@@ -13,7 +13,7 @@
 
         "telemetry.telemetryLevel" = "off";
 
-        "terminal.integrated.fontFamily" = "CaskaydiaMono Nerd Font";
+        "terminal.integrated.fontFamily" = "JetBrainsMono Nerd Font";
         "terminal.integrated.fontSize" = 14;
 
         "github.copilot.enable" = { "*" = false; };
@@ -60,6 +60,7 @@
           mikestead.dotenv
           matthewpi.caddyfile-support
           nefrob.vscode-just-syntax
+          fill-labs.dependi
           # Themes
           catppuccin.catppuccin-vsc
           catppuccin.catppuccin-vsc-icons
@@ -91,8 +92,8 @@
           {
             name = "claude-code";
             publisher = "anthropic";
-            version = "2.0.14";
-            sha256 = "sha256-+3GkCBfAAIaORU+qKGv6OmN2w9aXt3QKMgWtyLMJUS0=";
+            version = "2.0.31";
+            sha256 = "sha256-ylcb5Ty9x9uj38OY0RXsS+YNKVKUzc1c5x6RJsZ3E2g=";
           }
         ];
     };

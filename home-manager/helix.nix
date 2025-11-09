@@ -17,6 +17,6 @@
       };
     };
     extraPackages =
-      [ pkgs.gopls pkgs.marksman pkgs.bash-language-server pkgs.terraform-ls ];
+      [ pkgs.gopls pkgs.marksman pkgs.bash-language-server pkgs.terraform-ls pkgs.nixd ];
   };
 }

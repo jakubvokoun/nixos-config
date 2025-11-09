@@ -3,7 +3,9 @@
     enable = true;
     settings = {
       font_size = 12;
-      font_family = "CaskaydiaMono Nerd Font";
+      font_family = "JetBrainsMono Nerd Font";
+      font_features = "none";
+      disable_ligatures = "always";
       copy_on_select = "yes";
       cursor_shape = "block";
       cursor_blink_interval = 0;
