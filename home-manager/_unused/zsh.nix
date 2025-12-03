@@ -1,5 +1,5 @@
 { inputs, lib, config, pkgs, ... }: {
-  home.packages = [ pkgs.zsh-powerlevel10k ];
+  home.packages = [ pkgs.zsh-powerlevel10k pkgs.bat-extras.batman ];
 
   programs.zsh = {
     enable = true;
@@ -20,6 +20,8 @@
       NIXPKGS_ALLOW_INSECURE = "1";
       NIXPKGS_ALLOW_UNFREE = "1";
       TERM = "xterm-256color";
+      XCURSOR_THEME = "Bibata-Modern-Classic";
+      XCURSOR_SIZE = "24";
     };
 
     shellAliases = {
@@ -46,5 +48,15 @@
 
     history.size = 10000;
     history.path = "${config.xdg.dataHome}/zsh/history";
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.carapace = {
+    enable = true;
+    enableZshIntegration = true;
   };
 }

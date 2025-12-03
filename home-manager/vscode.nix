@@ -29,8 +29,17 @@
 
         "[templ]" = { "editor.defaultFormatter" = "a-h.templ"; };
 
-        "workbench.colorTheme" = "Catppuccin Latte";
-        "workbench.iconTheme" = "catppuccin-latte";
+        "workbench.colorTheme" = "Catppuccin Mocha";
+        "workbench.iconTheme" = "catppuccin-mocha";
+
+        # TODO
+        "claudeCode.useTerminal" = true;
+        "claudeCode.claudeProcessWrapper" =
+          "/home/jakub/.nix-profile/bin/claude";
+
+        # TODO
+        "ansible.python.interpreterPath" =
+          "/home/jakub/.nix-profile/bin/python3";
       };
       extensions = with pkgs.vscode-extensions;
         [
@@ -61,6 +70,8 @@
           matthewpi.caddyfile-support
           nefrob.vscode-just-syntax
           fill-labs.dependi
+          bierner.markdown-mermaid
+          yzane.markdown-pdf
           # Themes
           catppuccin.catppuccin-vsc
           catppuccin.catppuccin-vsc-icons

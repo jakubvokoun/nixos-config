@@ -79,6 +79,10 @@
     templ
     air
 
+    # Rust
+    rustup
+    gcc
+
     # PHP
     (pkgs.php83.buildEnv {
       extensions = ({ enabled, all }: enabled ++ (with all; [ ]));
@@ -127,6 +131,7 @@
     claude-code
     dive
     openvpn
+    mermaid-cli
 
     # NodeJS
     nodejs
@@ -184,6 +189,7 @@
     geany
     checkov
     djlint
+    hadolint
 
     # Office
     libreoffice-still
