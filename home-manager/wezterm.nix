@@ -15,7 +15,9 @@
         },
         color_scheme = "iTerm2 Tango Dark",
         hide_tab_bar_if_only_one_tab = true,
-        audible_bell = "Disabled"
+        audible_bell = "Disabled",
+        skip_close_confirmation_for_processes_named = {},
+        window_close_confirmation = "AlwaysPrompt"
       };
     '';
   };

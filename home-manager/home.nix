@@ -16,7 +16,7 @@
     ./wezterm.nix
     ./nixvim.nix
     ./redshift.nix
-    ./zsh-minimal.nix
+    ./zsh.nix
     ./tmux.nix
     ./vscode.nix
     ./cinnamon.nix
@@ -227,6 +227,9 @@
     xdg-desktop-portal
     xdg-desktop-portal-gtk
     xdg-desktop-portal-gnome
+
+    # IDE
+    jetbrains.pycharm-community-bin
   ];
 
   # Enable home-manager

@@ -24,4 +24,7 @@
     pkgs.nerd-fonts.dejavu-sans-mono
     pkgs.nerd-fonts.bitstream-vera-sans-mono
   ];
+  home.activation.fontconfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    run ${pkgs.fontconfig}/bin/fc-cache --force $VERBOSE_ARG
+  '';
 }

@@ -168,7 +168,7 @@ in {
             enable = true;
             settings.plugins.pylint.enabled = true;
           };
-          terraform_lsp.enable = true;
+          terraformls.enable = true;
           nixd.enable = true;
           rust_analyzer = {
             enable = true;
