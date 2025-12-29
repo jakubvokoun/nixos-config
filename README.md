@@ -253,3 +253,22 @@ Taken from: https://github.com/Misterio77/nix-starter-configs
 ```sh
 dconf dump / | dconf2nix > dconf.nix
 ```
+
+## Upgrade notes
+
+### System
+
+```sh
+sudo nix-channel --add https://nixos.org/channels/nixos-25.11 nixos
+sudo nix-channel --update
+sudo nixos-rebuild boot --upgrade
+```
+
+### Home manager
+
+```sh
+nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz home-manager
+nix-channel --update
+home-manager build
+home-manager switch
+```

@@ -1,8 +1,12 @@
 { inputs, lib, config, pkgs, ... }: {
   programs.git = {
     enable = true;
-    userName = "Jakub Vokoun";
-    userEmail = "jakub.vokoun@gmail.com";
+    settings = {
+      user = {
+        name = "Jakub Vokoun";
+        email = "jakub.vokoun@gmail.com";
+      };
+    };
     lfs = { enable = true; };
   };
 }

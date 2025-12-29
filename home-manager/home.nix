@@ -72,7 +72,7 @@
     poetry
 
     # Go
-    go_1_23
+    go_1_25
     gopls
     gotools
     delve
@@ -84,11 +84,11 @@
     gcc
 
     # PHP
-    (pkgs.php83.buildEnv {
+    (pkgs.php84.buildEnv {
       extensions = ({ enabled, all }: enabled ++ (with all; [ ]));
     })
-    php83Packages.composer
-    php83Packages.deployer
+    php84Packages.composer
+    deployer
 
     # Basic CLI apps
     htop
@@ -113,7 +113,7 @@
     scrot
     pom
     sqlite
-    mysql-client
+    mariadb.client
     mycli
     pgcli
     litecli
@@ -146,7 +146,7 @@
     # Communication
     thunderbird
     slack
-    whatsapp-for-linux
+    wasistlos
     telegram-desktop
     viber
 
@@ -179,7 +179,7 @@
     kustomize
     kubectx
     minikube
-    teleport_16
+    teleport_18
     tenv
     vagrant
     sublime4
@@ -190,6 +190,7 @@
     checkov
     djlint
     hadolint
+    lazyjournal
 
     # Office
     libreoffice-still
@@ -229,7 +230,8 @@
     xdg-desktop-portal-gnome
 
     # IDE
-    jetbrains.pycharm-community-bin
+    jetbrains.pycharm-oss
+    kiro
   ];
 
   # Enable home-manager

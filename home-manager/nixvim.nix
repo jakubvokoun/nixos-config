@@ -2,7 +2,7 @@
 let
   nixvim = import (builtins.fetchGit {
     url = "https://github.com/nix-community/nixvim";
-    ref = "nixos-25.05";
+    ref = "nixos-25.11";
   });
 in {
   imports = [ nixvim.homeManagerModules.nixvim ];
@@ -162,7 +162,8 @@ in {
           dockerls.enable = true;
           docker_compose_language_service.enable = true;
           gopls.enable = true;
-          ansiblels.enable = true;
+          # TODO
+          #ansiblels.enable = true;
           lua_ls.enable = true;
           pylsp = {
             enable = true;
@@ -194,10 +195,12 @@ in {
 
       treesitter-refactor = {
         enable = true;
-        highlightDefinitions = {
-          enable = true;
-          # Set to false if you have an `updatetime` of ~100.
-          clearOnCursorMove = false;
+        settings = {
+          highlight_definitions = {
+            enable = true;
+            # Set to false if you have an `updatetime` of ~100.
+            clear_on_cursor_move = false;
+          };
         };
       };
 
