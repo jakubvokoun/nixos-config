@@ -22,6 +22,9 @@
       pkgs.bash-language-server
       pkgs.terraform-ls
       pkgs.nixd
+      (pkgs.callPackage
+        "${config.home.homeDirectory}/.config/home-manager/packages/ansible-language-server"
+        { })
     ];
   };
 }

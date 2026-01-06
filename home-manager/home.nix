@@ -23,6 +23,7 @@
     ./ulauncher.nix
     ./zellij.nix
     ./keybase.nix
+    ./ansible-lsp.nix
   ];
 
   nixpkgs = {
@@ -67,6 +68,8 @@
       ppkgs.pandas
       ppkgs.torch
       ppkgs.jupyter
+      ppkgs.matplotlib
+      ppkgs.scikit-learn
     ]))
     pipenv
     poetry
@@ -75,6 +78,8 @@
     go_1_25
     gopls
     gotools
+    gotestsum
+    gocover-cobertura
     delve
     templ
     air
@@ -85,7 +90,12 @@
 
     # PHP
     (pkgs.php84.buildEnv {
-      extensions = ({ enabled, all }: enabled ++ (with all; [ ]));
+      extensions = ({ enabled, all }:
+        enabled ++ (with all; [
+          php84Extensions.xdebug
+          php84Extensions.pcov
+          php84Extensions.tokenizer
+        ]));
     })
     php84Packages.composer
     deployer
@@ -135,6 +145,8 @@
 
     # NodeJS
     nodejs
+    yarn
+    yarn2nix
     bun
 
     # Browsers
@@ -190,6 +202,7 @@
     checkov
     djlint
     hadolint
+    trivy
     lazyjournal
 
     # Office

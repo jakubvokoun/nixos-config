@@ -3,6 +3,8 @@
     enable = true;
     profiles.default = {
       userSettings = {
+        "update.mode " = "none";
+
         "editor.fontFamily" = "JetBrainsMono Nerd Font";
         "editor.fontLigatures" = false;
         "editor.fontSize" = 14;
@@ -32,14 +34,12 @@
         "workbench.colorTheme" = "Catppuccin Mocha";
         "workbench.iconTheme" = "catppuccin-mocha";
 
-        # TODO
         "claudeCode.useTerminal" = true;
         "claudeCode.claudeProcessWrapper" =
-          "/home/jakub/.nix-profile/bin/claude";
+          "${config.home.homeDirectory}/.nix-profile/bin/claude";
 
-        # TODO
         "ansible.python.interpreterPath" =
-          "/home/jakub/.nix-profile/bin/python3";
+          "${config.home.homeDirectory}/.nix-profile/bin/python3";
       };
       extensions = with pkgs.vscode-extensions;
         [
@@ -85,14 +85,14 @@
           {
             name = "vscode-laravel";
             publisher = "laravel";
-            version = "1.0.7";
-            sha256 = "sha256-HPvuEYCk59tPUCTKqX5tOWuhXhsHim4+fOrZoreRB8Q=";
+            version = "1.3.1";
+            sha256 = "sha256-2k+9xjIa4ikJ8qXn7BvB3w6yzrbDSISqT4UMyA8geFQ=";
           }
           {
             name = "vscode-blade-formatter";
             publisher = "shufo";
-            version = "0.24.6";
-            sha256 = "sha256-qIqKX85LBTahbwpt7Ko9v542Xy3W1qbUflMCPwNcJHQ=";
+            version = "0.26.2";
+            sha256 = "sha256-p0SedhmABPSXKXO4nZ6YU2y/IIGxwzgtfXAwA7olhz4=";
           }
           {
             name = "templ";
@@ -103,8 +103,8 @@
           {
             name = "claude-code";
             publisher = "anthropic";
-            version = "2.0.31";
-            sha256 = "sha256-ylcb5Ty9x9uj38OY0RXsS+YNKVKUzc1c5x6RJsZ3E2g=";
+            version = "2.0.75";
+            sha256 = "sha256-PA7eL4TZTFYVlImXnZCw6aWjrLXl7/KndnkU3D2t1jw=";
           }
         ];
     };

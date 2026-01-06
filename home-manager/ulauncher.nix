@@ -11,8 +11,8 @@
     };
 
     Service = {
-      Type = "Simple";
-      Restart = "Always";
+      Type = "simple";
+      Restart = "always";
       RestartSec = 1;
       ExecStart = pkgs.writeShellScript "ulauncher-env-wrapper.sh" ''
         if [ -e "$HOME/.nix-profile/share/" ]; then

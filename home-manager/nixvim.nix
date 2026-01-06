@@ -5,7 +5,7 @@ let
     ref = "nixos-25.11";
   });
 in {
-  imports = [ nixvim.homeManagerModules.nixvim ];
+  imports = [ nixvim.homeModules.nixvim ];
 
   programs.nixvim = {
     enable = true;
@@ -162,8 +162,10 @@ in {
           dockerls.enable = true;
           docker_compose_language_service.enable = true;
           gopls.enable = true;
-          # TODO
-          #ansiblels.enable = true;
+          ansiblels = {
+            enable = true;
+            package = null;
+          };
           lua_ls.enable = true;
           pylsp = {
             enable = true;

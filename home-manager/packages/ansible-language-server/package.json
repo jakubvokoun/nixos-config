@@ -1,0 +1,7 @@
+{
+    "name": "ansible-language-server",
+    "version": "1.2.3",
+    "dependencies": {
+        "@ansible/ansible-language-server": "1.2.3"
+    }
+}

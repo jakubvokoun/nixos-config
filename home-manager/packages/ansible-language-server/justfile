@@ -1,0 +1,6 @@
+build: lockfile
+    nix-build .
+
+lockfile:
+    yarn install
+    yarn2nix > yarn.nix
