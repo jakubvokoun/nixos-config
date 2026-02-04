@@ -110,7 +110,7 @@
     fd
     tig
     jq
-    yq
+    yq-go
     tree
     glow
     slides
@@ -142,6 +142,12 @@
     dive
     openvpn
     mermaid-cli
+    typst
+    tinymist
+    typstyle
+    mdformat
+    yamlfix
+    smartmontools
 
     # NodeJS
     nodejs
@@ -204,6 +210,7 @@
     hadolint
     trivy
     lazyjournal
+    tilt
 
     # Office
     libreoffice-still
@@ -217,6 +224,7 @@
 
     # Multimedia
     gimp
+    inkscape
     audacity
     mpv
     vlc

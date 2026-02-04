@@ -3,8 +3,6 @@
     enable = true;
     profiles.default = {
       userSettings = {
-        "update.mode " = "none";
-
         "editor.fontFamily" = "JetBrainsMono Nerd Font";
         "editor.fontLigatures" = false;
         "editor.fontSize" = 14;
@@ -17,8 +15,6 @@
 
         "terminal.integrated.fontFamily" = "JetBrainsMono Nerd Font";
         "terminal.integrated.fontSize" = 14;
-
-        "github.copilot.enable" = { "*" = false; };
 
         "files.associations" = {
           "**/roles/**/tasks/*.yml" = "ansible";
@@ -72,6 +68,8 @@
           fill-labs.dependi
           bierner.markdown-mermaid
           yzane.markdown-pdf
+          myriad-dreamin.tinymist
+          arrterian.nix-env-selector
           # Themes
           catppuccin.catppuccin-vsc
           catppuccin.catppuccin-vsc-icons
@@ -104,7 +102,13 @@
             name = "claude-code";
             publisher = "anthropic";
             version = "2.0.75";
-            sha256 = "sha256-PA7eL4TZTFYVlImXnZCw6aWjrLXl7/KndnkU3D2t1jw=";
+            sha256 = "sha256-LXUIp+Rqh0prvFLgmbiSVJYHNY2ECVAfK8GLmDRMcxU=";
+          }
+          {
+            name = "mermaid-markdown-syntax-highlighting";
+            publisher = "bpruitt-goddard";
+            version = "1.7.6";
+            sha256 = "sha256-vBqMclDOI0LYIsFyTBKW+cZ7Hjcnl6N5Z8Qlx0ez4SQ=";
           }
         ];
     };

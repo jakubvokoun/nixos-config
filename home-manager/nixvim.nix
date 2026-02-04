@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, config, lib, ... }:
 let
   nixvim = import (builtins.fetchGit {
     url = "https://github.com/nix-community/nixvim";
@@ -107,18 +107,6 @@ in {
       cmp_luasnip = { enable = true; }; # snippets
       cmp-cmdline = { enable = false; }; # autocomplete for cmdline
 
-      #cmp = {
-      #   autoEnableSources = true;
-      #settings.sources =
-      #[ { name = "nvim_lsp"; } { name = "path"; } { name = "buffer"; } ];
-      #};
-
-      #cmp-nvim-lsp.enable = true;
-
-      #cmp-buffer.enable = true;
-
-      #cmp-path.enable = true;
-
       nix.enable = true;
 
       helm.enable = true;
@@ -169,7 +157,11 @@ in {
           lua_ls.enable = true;
           pylsp = {
             enable = true;
-            settings.plugins.pylint.enabled = true;
+            settings.plugins.pylint = {
+              enabled = true;
+              executable =
+                "${config.home.homeDirectory}/.nix-profile/bin/pylint";
+            };
           };
           terraformls.enable = true;
           nixd.enable = true;
@@ -181,6 +173,11 @@ in {
           };
           just.enable = true;
           diagnosticls.enable = true;
+          tinymist.enable = true;
+          typst_lsp = {
+            enable = true;
+            package = pkgs.tinymist;
+          };
         };
       };
 
@@ -237,8 +234,6 @@ in {
 
       web-devicons.enable = true;
 
-      render-markdown.enable = true;
-
       zen-mode.enable = true;
 
       nvim-tree.enable = true;
@@ -248,17 +243,9 @@ in {
         settings = { preset = "classic"; };
       };
 
-      claude-code = {
-        enable = true;
-        settings = {
-          window = {
-            hide_numbers = false;
-            hide_signcolumn = false;
-            position = "vertical";
-            split_ratio = 0.5;
-          };
-        };
-      };
+      typst-vim.enable = true;
+
+      typst-preview.enable = true;
     };
   };
 }

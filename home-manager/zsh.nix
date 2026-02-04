@@ -19,6 +19,7 @@
       VISUAL = "nvim";
       NIXPKGS_ALLOW_INSECURE = "1";
       NIXPKGS_ALLOW_UNFREE = "1";
+      NIX_SKIP_KEYBASE_CHECKS = "1";
       TERM = "xterm-256color";
       XCURSOR_THEME = "Bibata-Modern-Classic";
       XCURSOR_SIZE = "24";

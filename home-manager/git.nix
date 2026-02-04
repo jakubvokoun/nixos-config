@@ -9,4 +9,6 @@
     };
     lfs = { enable = true; };
   };
+
+  home.packages = [ pkgs.git-filter-repo ];
 }
