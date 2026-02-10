@@ -5,31 +5,16 @@
     terminal = "tmux-256color";
     historyLimit = 100000;
     keyMode = "vi";
+    plugins = with pkgs.tmuxPlugins; [
+      { plugin = cpu; }
+      { plugin = battery; }
+      { plugin = tokyo-night-tmux; }
+    ];
     extraConfig = ''
       # Pane splits & new window should open to the same path as the current pane
       bind '"' split-window -v -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
       bind c new-window -c "#{pane_current_path}"
-
-      # Catppuccin Mocha tmux status line (lighter gray)
-      set -g status-bg '#45475a'
-      set -g status-fg '#cdd6f4'
-      set -g status-left-length 20
-      set -g status-right-length 60
-
-      # Left side - session name
-      set -g status-left '#[bg=#89b4fa,fg=#1e1e2e,bold] #S #[bg=#45475a] '
-
-      # Window status
-      set -g window-status-format '#[fg=#a6adc8] #I:#W '
-      set -g window-status-current-format '#[bg=#89b4fa,fg=#1e1e2e,bold] #I:#W #[bg=#45475a] '
-
-      # Right side - date and time
-      set -g status-right '#[fg=#a6adc8]%Y-%m-%d #[fg=#cdd6f4,bold]%H:%M'
-
-      # Pane borders
-      set -g pane-border-style 'fg=#6c7086'
-      set -g pane-active-border-style 'fg=#89b4fa'
 
       # Copy & paste
       bind-key -T copy-mode-vi v send-keys -X begin-selection

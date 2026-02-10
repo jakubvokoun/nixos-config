@@ -5,6 +5,6 @@
   home.packages = with pkgs; [ ptyxis ];
 
   # Overriding themes
-  programs.helix = { settings = { theme = lib.mkForce "catppuccin_latte"; }; };
-  programs.zellij = { settings = { theme = lib.mkForce "catppuccin-latte"; }; };
+  programs.helix = { settings = { theme = lib.mkForce "tokyonight-day"; }; };
+  programs.zellij = { settings = { theme = lib.mkForce "tokyo-night-light"; }; };
 }

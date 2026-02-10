@@ -6,6 +6,7 @@
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
+    dotDir = "${config.xdg.configHome}/zsh";
 
     initContent = ''
       autoload -Uz +X compinit && compinit
@@ -36,6 +37,7 @@
       VISUAL = "nvim";
       NIXPKGS_ALLOW_INSECURE = "1";
       NIXPKGS_ALLOW_UNFREE = "1";
+      NIX_SKIP_KEYBASE_CHECKS = "1";
       TERM = "xterm-256color";
       XCURSOR_THEME = "Bibata-Modern-Classic";
       XCURSOR_SIZE = "24";
@@ -50,6 +52,8 @@
       git-wt-switch = "cd $(git worktree list | fzf | awk '{ print $1 }')";
       git-branch-switch =
         "git checkout $(git branch | fzf | sed 's/[*+]//' | awk '{ print $1 }')";
+      tldrf = ''
+        tldr --list | sort | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'';
     };
 
     plugins = [{
@@ -92,6 +96,7 @@
         "$package"
         "$python"
         "$golang"
+        "$rust"
         "$kubernetes"
         "$aws"
         "$bun"
@@ -107,6 +112,7 @@
         "$character"
       ];
       kubernetes.disabled = false;
+      nix_shell.format = "via [$symbol]($style) ";
     };
   };
 }

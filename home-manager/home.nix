@@ -16,7 +16,7 @@
     ./wezterm.nix
     ./nixvim.nix
     ./redshift.nix
-    ./zsh.nix
+    ./starship.nix
     ./tmux.nix
     ./vscode.nix
     ./cinnamon.nix

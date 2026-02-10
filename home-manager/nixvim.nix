@@ -14,9 +14,10 @@ in {
     viAlias = true;
     vimAlias = true;
 
-    # Settings
-    colorschemes.catppuccin.enable = true;
-    colorschemes.catppuccin.settings = { flavour = "mocha"; };
+    colorschemes.tokyonight = {
+      enable = true;
+      settings = { style = "night"; };
+    };
 
     globals = { mapleader = " "; };
 

@@ -27,8 +27,7 @@
 
         "[templ]" = { "editor.defaultFormatter" = "a-h.templ"; };
 
-        "workbench.colorTheme" = "Catppuccin Mocha";
-        "workbench.iconTheme" = "catppuccin-mocha";
+        "workbench.colorTheme" = "Tokyo Night";
 
         "claudeCode.useTerminal" = true;
         "claudeCode.claudeProcessWrapper" =
@@ -71,8 +70,7 @@
           myriad-dreamin.tinymist
           arrterian.nix-env-selector
           # Themes
-          catppuccin.catppuccin-vsc
-          catppuccin.catppuccin-vsc-icons
+          enkia.tokyo-night
         ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
             name = "latte";

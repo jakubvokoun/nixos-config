@@ -4,14 +4,14 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    syntaxHighlighting.enable = true;
-    autosuggestion.enable = true;
+    dotDir = "${config.xdg.configHome}/zsh";
 
-    dotDir = ".config/zsh";
-    initExtra = ''
+    initContent = ''
       # Powerlevel10k Zsh theme
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme  
-      test -f ~/.config/zsh/.p10k.zsh && source ~/.config/zsh/.p10k.zsh  
+      test -f ~/.config/zsh/.p10k.zsh && source ~/.config/zsh/.p10k.zsh
+      # Batman
+      eval "$(batman --export-env)"
     '';
 
     sessionVariables = {
@@ -19,6 +19,7 @@
       VISUAL = "nvim";
       NIXPKGS_ALLOW_INSECURE = "1";
       NIXPKGS_ALLOW_UNFREE = "1";
+      NIX_SKIP_KEYBASE_CHECKS = "1";
       TERM = "xterm-256color";
       XCURSOR_THEME = "Bibata-Modern-Classic";
       XCURSOR_SIZE = "24";

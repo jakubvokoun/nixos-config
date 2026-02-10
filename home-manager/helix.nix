@@ -2,7 +2,7 @@
   programs.helix = {
     enable = true;
     settings = {
-      theme = "catppuccin_mocha";
+      theme = "tokyonight";
       editor = {
         soft-wrap = { enable = true; };
         whitespace = {
