@@ -112,7 +112,6 @@
         "$character"
       ];
       kubernetes.disabled = false;
-      nix_shell.format = "via [$symbol]($style) ";
     };
   };
 }
