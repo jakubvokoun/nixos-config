@@ -93,7 +93,7 @@
 
 ### CUPS
 
-- driver: IPP Everywhere 
+- driver: IPP Everywhere
 - connection: socket://printer.home
 
 ### i3
