@@ -29,7 +29,6 @@
 
         "workbench.colorTheme" = "Tokyo Night";
 
-        "claudeCode.useTerminal" = true;
         "claudeCode.claudeProcessWrapper" =
           "${config.home.homeDirectory}/.nix-profile/bin/claude";
 
@@ -99,8 +98,8 @@
           {
             name = "claude-code";
             publisher = "anthropic";
-            version = "2.0.75";
-            sha256 = "sha256-LXUIp+Rqh0prvFLgmbiSVJYHNY2ECVAfK8GLmDRMcxU=";
+            version = "2.1.41";
+            sha256 = "sha256-ztsdHY2xpIq0nZSyJt/Sx1in94B3IutkIhxFp/XSYSA=";
           }
           {
             name = "mermaid-markdown-syntax-highlighting";

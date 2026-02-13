@@ -254,6 +254,26 @@ Taken from: https://github.com/Misterio77/nix-starter-configs
 dconf dump / | dconf2nix > dconf.nix
 ```
 
+### Using unstable packages
+
+- add the `unstable` channel
+
+```sh
+nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs-unstable
+nix-channel --update
+```
+
+- specify in `home.nix`
+
+```nix
+# ~/.config/home-manager/home.nix
+{ inputs, lib, config, pkgs, ... }:
+let pkgsUnstable = import <nixpkgs-unstable> { };
+in {
+  home.packages = with pkgs; [ pkgsUnstable.claude-code ];
+}
+```
+
 ## Upgrade notes
 
 ### System
