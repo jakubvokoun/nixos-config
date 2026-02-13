@@ -112,6 +112,7 @@
         "$character"
       ];
       kubernetes.disabled = false;
+      nix_shell.symbol = "󱄅 ";
     };
   };
 }
