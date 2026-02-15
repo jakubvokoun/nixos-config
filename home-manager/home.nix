@@ -24,7 +24,6 @@ in {
     ./cinnamon.nix
     ./ulauncher.nix
     ./zellij.nix
-    ./keybase.nix
     ./ansible-lsp.nix
   ];
 
@@ -150,6 +149,7 @@ in {
     mdformat
     yamlfix
     smartmontools
+    gopass
 
     # NodeJS
     nodejs

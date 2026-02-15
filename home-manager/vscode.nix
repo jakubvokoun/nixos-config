@@ -29,8 +29,12 @@
 
         "workbench.colorTheme" = "Tokyo Night";
 
-        "claudeCode.claudeProcessWrapper" =
-          "${config.home.homeDirectory}/.nix-profile/bin/claude";
+        "claudeCode" = {
+          "useTerminal" = true;
+          "preferredLocation" = "panel";
+          "claudeProcessWrapper" =
+            "${config.home.homeDirectory}/.nix-profile/bin/claude";
+        };
 
         "ansible.python.interpreterPath" =
           "${config.home.homeDirectory}/.nix-profile/bin/python3";
