@@ -254,6 +254,28 @@ Taken from: https://github.com/Misterio77/nix-starter-configs
 dconf dump / | dconf2nix > dconf.nix
 ```
 
+### Using llm-agents.nix
+
+- https://github.com/numtide/llm-agents.nix
+
+Add the flake and overlay in `home.nix`, then install packages from it:
+
+```nix
+# ~/.config/home-manager/home.nix
+{ inputs, lib, config, pkgs, ... }:
+let llm-agents = builtins.getFlake "github:numtide/llm-agents.nix";
+in {
+  nixpkgs.overlays = [
+    llm-agents.overlays.default
+  ];
+
+  home.packages = with pkgs; [
+    pkgs.llm-agents.claude-code
+    pkgs.llm-agents.openspec
+  ];
+}
+```
+
 ### Using unstable packages
 
 - add the `unstable` channel

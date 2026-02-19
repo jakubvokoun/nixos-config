@@ -2,7 +2,7 @@
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 
 { inputs, lib, config, pkgs, ... }:
-let pkgsUnstable = import <nixpkgs-unstable> { };
+let llm-agents = builtins.getFlake "github:numtide/llm-agents.nix";
 in {
   # You can import other home-manager modules here
   imports = [
@@ -32,6 +32,7 @@ in {
     overlays = [
       # If you want to use overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
+      llm-agents.overlays.default
 
       # Or define it inline, for example:
       # (final: prev: {
@@ -139,7 +140,6 @@ in {
     openssl
     ast-grep
     systemctl-tui
-    pkgsUnstable.claude-code
     dive
     openvpn
     mermaid-cli
@@ -255,6 +255,10 @@ in {
     # IDE
     jetbrains.pycharm-oss
     kiro
+
+    # AI
+    pkgs.llm-agents.claude-code
+    pkgs.llm-agents.openspec
   ];
 
   # Enable home-manager

@@ -27,6 +27,11 @@
 
         "[templ]" = { "editor.defaultFormatter" = "a-h.templ"; };
 
+        "[helm-template]" = {
+          "yaml.validate" = false;
+          "yaml.format.enable" = false;
+        };
+
         "workbench.colorTheme" = "Tokyo Night";
 
         "claudeCode" = {
