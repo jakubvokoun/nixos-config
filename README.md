@@ -96,7 +96,7 @@
 - driver: IPP Everywhere
 - connection: socket://printer.home
 
-### i3
+## i3
 
 ```nix
 # /etc/nixos/configuration.nix
@@ -116,7 +116,7 @@
 }
 ```
 
-### Garbage collection
+## Garbage collection
 
 ```nix
 # /etc/nixos/configuration.nix
@@ -192,7 +192,7 @@ vim ~/.config/home-manager/home.nix
 home-manager switch
 ```
 
-### Mininal config
+### Minimal config
 
 Taken from: https://github.com/Misterio77/nix-starter-configs
 
@@ -258,7 +258,7 @@ dconf dump / | dconf2nix > dconf.nix
 
 - https://github.com/numtide/llm-agents.nix
 
-Add the flake and overlay in `home.nix`, then install packages from it:
+Add the overlay in `home.nix`, then install packages from it:
 
 ```nix
 # ~/.config/home-manager/home.nix
