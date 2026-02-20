@@ -186,6 +186,7 @@ in {
     gnumake
     just
     kubernetes-helm
+    helm-ls
     k6
     k9s
     kdash
