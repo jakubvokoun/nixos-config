@@ -11,6 +11,7 @@
       "sql"
       "xml"
       "terraform"
+      "opentofu"
       "toml"
       "pylsp"
       "make"
@@ -21,32 +22,39 @@
       "docker-compose"
       "blade"
       "templ"
-      "catppuccin"
-      "catppuccin-icons"
+      "typst"
+      "mermaid"
+      "perl"
+      "dependi"
+      "gotmpl"
+      "django"
+      "git-firefly"
+      "tokyo-night"
     ];
     userSettings = {
       features = { copilot = false; };
       telemetry = { metrics = false; };
       vim_mode = true;
-      ui_font_size = 16;
-      buffer_font_size = 16;
-      buffer_font_family = "Zed Plex Mono";
+      buffer_font_family = "JetBrainsMono Nerd Font";
+      buffer_font_size = 14;
       buffer_font_weight = 500;
       ui_font_family = "Zed Plex Sans";
+      ui_font_size = 16;
       ui_font_weight = 500;
+      buffer_font_features = { calt = false; };
       theme = {
         mode = "system";
-        light = "Catppuccin Mocha";
-        dark = "Catppuccin Mocha";
+        light = "Tokyo Night";
+        dark = "Tokyo Night";
       };
       icon_theme = {
         mode = "system";
-        light = "Catppuccin Mocha";
-        dark = "Catppuccin Mocha";
+        light = "Tokyo Night";
+        dark = "Tokyo Night";
       };
       terminal = {
-        font_size = 16;
-        font_family = "Zed Plex Mono";
+        font_size = 14;
+        font_family = "JetBrainsMono Nerd Font";
       };
       file_types = {
         Ansible = [
@@ -67,7 +75,15 @@
           "**playbook*.yml"
           "**playbook*.yaml"
         ];
-        Dockerfile = [ "Dockerfile.*" ];
+        Helm = [
+          "**/templates/**/*.tpl"
+          "**/templates/**/*.yaml"
+          "**/templates/**/*.yml"
+          "**/helmfile.d/**/*.yaml"
+          "**/helmfile.d/**/*.yml"
+          "**/values*.yaml"
+        ];
+        Dockerfile = [ "*.Dockerfile" "Dockerfile.*" ];
       };
     };
   };

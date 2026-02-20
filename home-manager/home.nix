@@ -21,6 +21,7 @@ in {
     ./starship.nix
     ./tmux.nix
     ./vscode.nix
+    ./zed.nix
     ./cinnamon.nix
     ./ulauncher.nix
     ./zellij.nix
