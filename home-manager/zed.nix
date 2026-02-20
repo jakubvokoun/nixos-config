@@ -31,6 +31,9 @@
       "gotmpl"
       "django"
       "git-firefly"
+      "ruby"
+      "editorconfig"
+      "ini"
       "tokyo-night"
     ];
     userSettings = {
@@ -45,11 +48,6 @@
       ui_font_weight = 500;
       buffer_font_features = { calt = false; };
       theme = {
-        mode = "system";
-        light = "Tokyo Night";
-        dark = "Tokyo Night";
-      };
-      icon_theme = {
         mode = "system";
         light = "Tokyo Night";
         dark = "Tokyo Night";
@@ -110,6 +108,8 @@
           "**/playbooks/*.yaml"
           "**playbook*.yml"
           "**playbook*.yaml"
+          "**site*.yml"
+          "**site*.yaml"
         ];
         Helm = [
           "**/templates/**/*.tpl"
