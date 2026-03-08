@@ -1,8 +1,11 @@
-{ inputs, lib, config, pkgs, ... }: {
+{ inputs, lib, config, pkgs, ... }:
+let pkgsUnstable = import <nixpkgs-unstable> { };
+in {
   programs.zed-editor = {
     enable = true;
-    package = pkgs.zed-editor-fhs;
-    extraPackages = [ pkgs.nixd pkgs.ruff pkgs.nil pkgs.ty ];
+    package = pkgsUnstable.zed-editor-fhs;
+    extraPackages =
+      [ pkgs.nixd pkgs.ruff pkgs.nil pkgs.ty pkgs.shfmt pkgs.phpactor ];
     extensions = [
       "ansible"
       "csv"
@@ -17,12 +20,13 @@
       "toml"
       "pylsp"
       "make"
-      "justfile"
+      "just"
       "jinja2"
       "awk"
       "dockerfile"
       "docker-compose"
       "blade"
+      "latte"
       "templ"
       "typst"
       "mermaid"
@@ -34,7 +38,9 @@
       "ruby"
       "editorconfig"
       "ini"
-      "tokyo-night"
+      "basher"
+      # Themes
+      "jetbrains-themes"
     ];
     userSettings = {
       features = { copilot = false; };
@@ -49,8 +55,8 @@
       buffer_font_features = { calt = false; };
       theme = {
         mode = "system";
-        light = "Tokyo Night";
-        dark = "Tokyo Night";
+        light = "Jetbrains Light";
+        dark = "Jetbrains Dark";
       };
       terminal = {
         font_size = 14;
@@ -66,6 +72,19 @@
           inlay_hints = { enabled = true; };
         };
         Python = { language_servers = [ "ty" "!basedpyright" ]; };
+        PHP = {
+          language_servers = [ "phpactor" "!intelephense" "!phptools" ];
+        };
+        "Shell Script" = {
+          tab_size = 4;
+          formatter = {
+            external = {
+              command = "shfmt";
+              arguments = [ "--filename" "{buffer_path}" "--indent" "4" ];
+            };
+          };
+          # format_on_save = "on";
+        };
       };
       lsp = {
         rust-analyzer = {
@@ -119,7 +138,7 @@
           "**/helmfile.d/**/*.yml"
           "**/values*.yaml"
         ];
-        Dockerfile = [ "*.Dockerfile" "Dockerfile.*" ];
+        Dockerfile = [ "*.Dockerfile" "Dockerfile.*" "Dockerfile*" ];
       };
     };
   };

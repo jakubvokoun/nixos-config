@@ -86,6 +86,7 @@
     enableZshIntegration = true;
     settings = {
       add_newline = false;
+      continuation_prompt = "[.](bright-black) ";
       format = lib.concatStrings [
         "$directory"
         "$git_branch"
@@ -111,8 +112,100 @@
         "$jobs"
         "$character"
       ];
-      kubernetes.disabled = false;
-      nix_shell.symbol = "󱄅 ";
+
+      character = {
+        success_symbol = "[>](bold green)";
+        error_symbol = "[x](bold red)";
+        vimcmd_symbol = "[<](bold green)";
+        vimcmd_visual_symbol = "[<](bold yellow)";
+        vimcmd_replace_symbol = "[<](bold purple)";
+        vimcmd_replace_one_symbol = "[<](bold purple)";
+      };
+
+      git_commit.tag_symbol = " tag ";
+
+      git_status = {
+        ahead = ">";
+        behind = "<";
+        diverged = "<>";
+        renamed = "r";
+        deleted = "x";
+      };
+
+      git_branch = {
+        symbol = "git ";
+        truncation_symbol = "...";
+      };
+
+      directory.read_only = " ro";
+
+      aws.symbol = "aws ";
+      azure.symbol = "az ";
+      buf.symbol = "buf ";
+      bun.symbol = "bun ";
+      c.symbol = "C ";
+      cmake.symbol = "cmake ";
+      conda.symbol = "conda ";
+      container.symbol = "container ";
+      crystal.symbol = "cr ";
+      dart.symbol = "dart ";
+      deno.symbol = "deno ";
+      docker_context.symbol = "docker ";
+      dotnet = {
+        format = "via [$symbol($version )(target $tfm )]($style)";
+        symbol = ".NET ";
+      };
+      elixir.symbol = "exs ";
+      elm.symbol = "elm ";
+      erlang.symbol = "erl ";
+      golang.symbol = "go ";
+      gradle.symbol = "gradle ";
+      haskell.symbol = "haskell ";
+      helm.symbol = "helm ";
+      java.symbol = "java ";
+      jobs.symbol = "*";
+      julia.symbol = "jl ";
+      kotlin.symbol = "kt ";
+      kubernetes = {
+        disabled = false;
+        symbol = "kubernetes ";
+      };
+      lua.symbol = "lua ";
+      memory_usage.symbol = "memory ";
+      nim.symbol = "nim ";
+      nix_shell.symbol = "nix ";
+      nodejs.symbol = "nodejs ";
+      ocaml.symbol = "ml ";
+      package.symbol = "pkg ";
+      perl.symbol = "pl ";
+      php.symbol = "php ";
+      python.symbol = "py ";
+      ruby.symbol = "rb ";
+      rust.symbol = "rs ";
+      scala.symbol = "scala ";
+      sudo.symbol = "sudo ";
+      swift.symbol = "swift ";
+      terraform.symbol = "terraform ";
+      vagrant.symbol = "vagrant ";
+      zig.symbol = "zig ";
+
+      battery = {
+        full_symbol = "full ";
+        charging_symbol = "charging ";
+        discharging_symbol = "discharging ";
+        unknown_symbol = "unknown ";
+        empty_symbol = "empty ";
+      };
+
+      status = {
+        symbol = "[x](bold red) ";
+        not_executable_symbol = "noexec";
+        not_found_symbol = "notfound";
+        sigint_symbol = "sigint";
+        signal_symbol = "sig";
+      };
+
+      hostname.ssh_symbol = "ssh ";
     };
   };
 }

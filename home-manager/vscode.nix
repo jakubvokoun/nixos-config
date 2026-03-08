@@ -32,7 +32,7 @@
           "yaml.format.enable" = false;
         };
 
-        "workbench.colorTheme" = "Tokyo Night";
+        "workbench.colorTheme" = "Default Dark+";
 
         "claudeCode" = {
           "useTerminal" = true;
@@ -77,8 +77,6 @@
           yzane.markdown-pdf
           myriad-dreamin.tinymist
           arrterian.nix-env-selector
-          # Themes
-          enkia.tokyo-night
         ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
             name = "latte";
@@ -107,8 +105,8 @@
           {
             name = "claude-code";
             publisher = "anthropic";
-            version = "2.1.41";
-            sha256 = "sha256-ebubNtm3HhJ5N/8mQeszn0/uxNWkTBBkjwLZdqkE35A=";
+            version = "2.1.71";
+            sha256 = "sha256-W8rrLxFhPcwuYDfdO0xDsO2rAJFS2QQU30psvU79Qig=";
           }
           {
             name = "mermaid-markdown-syntax-highlighting";
