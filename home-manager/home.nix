@@ -64,15 +64,12 @@ in {
 
     # Python
     (pkgs.python313.withPackages (ppkgs: [
-      ppkgs.bpython
       ppkgs.ipython
       ppkgs.pip-tools
       ppkgs.numpy
       ppkgs.pandas
-      ppkgs.torch
       ppkgs.jupyter
       ppkgs.matplotlib
-      ppkgs.scikit-learn
     ]))
     pipenv
     poetry
@@ -192,8 +189,6 @@ in {
     kdash
     kind
     kail
-    kns
-    kubebuilder
     kubectl
     kubectl-ktop
     kubelogin
@@ -215,6 +210,7 @@ in {
     trivy
     lazyjournal
     tilt
+    semgrep
 
     # Office
     libreoffice-still
@@ -244,6 +240,7 @@ in {
     pandoc
     cheese
     gnome-pomodoro
+    bleachbit
 
     # 3D print
     openscad

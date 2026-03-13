@@ -87,8 +87,8 @@
           {
             name = "vscode-laravel";
             publisher = "laravel";
-            version = "1.3.1";
-            sha256 = "sha256-2k+9xjIa4ikJ8qXn7BvB3w6yzrbDSISqT4UMyA8geFQ=";
+            version = "1.6.5";
+            sha256 = "sha256-3aiy+yzYDQszfRIL6CHLd6wr9RjjAofhiknYZnh3gSo=";
           }
           {
             name = "vscode-blade-formatter";
@@ -105,14 +105,14 @@
           {
             name = "claude-code";
             publisher = "anthropic";
-            version = "2.1.71";
-            sha256 = "sha256-W8rrLxFhPcwuYDfdO0xDsO2rAJFS2QQU30psvU79Qig=";
+            version = "2.1.74";
+            sha256 = "sha256-WmDHxRVHzS8WmaUg4WG/f7Jy4TQ8oVm5PJXm1V7wOn8=";
           }
           {
             name = "mermaid-markdown-syntax-highlighting";
             publisher = "bpruitt-goddard";
-            version = "1.7.6";
-            sha256 = "sha256-vBqMclDOI0LYIsFyTBKW+cZ7Hjcnl6N5Z8Qlx0ez4SQ=";
+            version = "1.8.0";
+            sha256 = "sha256-JATdvLubjfQ1oFXIkXrui6cSHmssgtd2o8l21DMU5B8=";
           }
         ];
     };
