@@ -314,3 +314,16 @@ nix-channel --update
 home-manager build
 home-manager switch
 ```
+
+## Cachix
+
+- install the `cachix` package
+
+```sh
+sudo cachix use nix-community
+```
+
+```nix
+# /etc/nixos/configuration.nix
+imports = [ ./cachix.nix ];
+```
