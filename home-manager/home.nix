@@ -2,7 +2,9 @@
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 
 { inputs, lib, config, pkgs, ... }:
-let llm-agents = builtins.getFlake "github:numtide/llm-agents.nix";
+let
+  llm-agents = builtins.getFlake "github:numtide/llm-agents.nix";
+  pkgsUnstable = import <nixpkgs-unstable> { };
 in {
   # You can import other home-manager modules here
   imports = [
@@ -211,6 +213,9 @@ in {
     lazyjournal
     tilt
     semgrep
+    gitlab-ci-local
+    pkgsUnstable.glab
+    pkgsUnstable.zarf
 
     # Office
     libreoffice-still
@@ -250,10 +255,6 @@ in {
     xdg-desktop-portal
     xdg-desktop-portal-gtk
     xdg-desktop-portal-gnome
-
-    # IDE
-    jetbrains.pycharm-oss
-    kiro
 
     # AI
     pkgs.llm-agents.claude-code
