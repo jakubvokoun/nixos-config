@@ -2,6 +2,7 @@
   fonts.fontconfig.enable = true;
   home.packages = [
     pkgs.corefonts
+    pkgs.fira
     pkgs.dejavu_fonts
     pkgs.font-awesome
     pkgs.powerline-fonts

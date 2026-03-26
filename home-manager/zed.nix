@@ -39,6 +39,7 @@ in {
       "editorconfig"
       "ini"
       "basher"
+      "robot-framework"
       # Themes
       "jetbrains-themes"
     ];
