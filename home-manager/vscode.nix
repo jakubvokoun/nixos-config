@@ -81,20 +81,20 @@
           {
             name = "latte";
             publisher = "kasik96";
-            version = "0.18.0";
-            sha256 = "sha256-gxnjUUtkeTlbASCoBMbyGuVEtTvp027Gx5+ngHwEms0=";
+            version = "0.18.2";
+            sha256 = "sha256-olgoG2VMqk7IupwVm02AauqqGy6jzZdbu5YZfH11zo0=";
           }
           {
             name = "vscode-laravel";
             publisher = "laravel";
-            version = "1.6.5";
-            sha256 = "sha256-3aiy+yzYDQszfRIL6CHLd6wr9RjjAofhiknYZnh3gSo=";
+            version = "1.6.8";
+            sha256 = "sha256-Gtl1v4fK0gDj3x27qw0JWopX6jdmBRp1qCzQzQu66E4=";
           }
           {
             name = "vscode-blade-formatter";
             publisher = "shufo";
-            version = "0.26.2";
-            sha256 = "sha256-p0SedhmABPSXKXO4nZ6YU2y/IIGxwzgtfXAwA7olhz4=";
+            version = "0.26.3";
+            sha256 = "sha256-Ccjh8dgOPW3+uM9fQ7mloMsHEs3zP3fEE9BxQxorpf8=";
           }
           {
             name = "templ";
@@ -105,8 +105,8 @@
           {
             name = "claude-code";
             publisher = "anthropic";
-            version = "2.1.74";
-            sha256 = "sha256-WmDHxRVHzS8WmaUg4WG/f7Jy4TQ8oVm5PJXm1V7wOn8=";
+            version = "2.1.90";
+            sha256 = "sha256-8xHAEqxxCA0bw/4eNFL2PutMquD2H7FO1o2yycAJ4ME=";
           }
           {
             name = "mermaid-markdown-syntax-highlighting";

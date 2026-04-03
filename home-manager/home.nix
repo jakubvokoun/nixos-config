@@ -258,6 +258,7 @@ in {
 
     # AI
     pkgs.llm-agents.claude-code
+    pkgs.llm-agents.opencode
     pkgs.llm-agents.openspec
   ];
 

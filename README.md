@@ -271,8 +271,25 @@ in {
 
   home.packages = with pkgs; [
     pkgs.llm-agents.claude-code
+    pkgs.llm-agents.opencode
     pkgs.llm-agents.openspec
   ];
+}
+```
+
+Cache setup
+
+```nix
+# /etc/nixos/configuration.nix
+{ config, pkgs, ... }:
+
+{
+  nix.settings = {
+    extra-substituters = [ "https://cache.numtide.com" ];
+    extra-trusted-public-keys = [
+      "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
+    ];
+  };
 }
 ```
 
