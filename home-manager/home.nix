@@ -150,6 +150,7 @@ in {
     yamlfix
     smartmontools
     gopass
+    delta
 
     # NodeJS
     nodejs

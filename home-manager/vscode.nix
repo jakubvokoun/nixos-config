@@ -87,8 +87,8 @@
           {
             name = "vscode-laravel";
             publisher = "laravel";
-            version = "1.6.8";
-            sha256 = "sha256-Gtl1v4fK0gDj3x27qw0JWopX6jdmBRp1qCzQzQu66E4=";
+            version = "1.7.0";
+            sha256 = "sha256-5PVbv5hWIdsOHvYttnf2BPeqfPXsOVENrnRyiUf/Hlg=";
           }
           {
             name = "vscode-blade-formatter";
@@ -105,8 +105,8 @@
           {
             name = "claude-code";
             publisher = "anthropic";
-            version = "2.1.90";
-            sha256 = "sha256-8xHAEqxxCA0bw/4eNFL2PutMquD2H7FO1o2yycAJ4ME=";
+            version = "2.1.101";
+            sha256 = "sha256-L16rJFwOIK8afKXhZ2ekEEoRIRYfHoHTUHP0+iEL1BI=";
           }
           {
             name = "mermaid-markdown-syntax-highlighting";
