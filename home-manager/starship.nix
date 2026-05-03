@@ -16,6 +16,9 @@
       eval "$(starship init zsh)"
       eval "$(batman --export-env)"
 
+      source <(kubectl completion zsh)
+      compdef k=kubectl
+
       # Function to update package versions in Ansible YAML files
       update-ansible-pkg-version() {
         if [[ $# -ne 2 ]]; then
@@ -52,8 +55,9 @@
       git-wt-switch = "cd $(git worktree list | fzf | awk '{ print $1 }')";
       git-branch-switch =
         "git checkout $(git branch | fzf | sed 's/[*+]//' | awk '{ print $1 }')";
+      k = "kubectl";
       tldrf = ''
-        tldr --list | sort | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'';
+        tldr --list 2> /dev/null | sort | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'';
     };
 
     plugins = [{

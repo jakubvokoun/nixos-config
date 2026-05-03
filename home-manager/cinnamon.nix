@@ -12,6 +12,8 @@ with lib.hm.gvariant; {
     "org/cinnamon" = {
       panels-enabled = [ "1:0:top" ];
       panels-height = [ "1:40" ];
+      panels-autohide = [ "1:false" ];
+      panels-resizable = [ "1:false" ];
     };
 
     "desktop/interface" = {
@@ -39,6 +41,14 @@ with lib.hm.gvariant; {
     };
 
     "desktop/session" = { idle-delay = mkUint32 300; };
+
+    "desktop/screensaver" = {
+      idle-activation-enabled = true;
+      lock-enabled = true;
+      lock-delay = mkUint32 0;
+      ask-for-away-message = false;
+      show-info-panel = true;
+    };
 
     "desktop/sound" = { event-sounds = false; };
 

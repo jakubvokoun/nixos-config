@@ -6,6 +6,7 @@
         name = "Jakub Vokoun";
         email = "jakub.vokoun@gmail.com";
       };
+      push.autoSetupRemote = true;
     };
     lfs = { enable = true; };
   };

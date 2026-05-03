@@ -35,7 +35,6 @@
         "workbench.colorTheme" = "Default Dark+";
 
         "claudeCode" = {
-          "useTerminal" = true;
           "preferredLocation" = "panel";
           "claudeProcessWrapper" =
             "${config.home.homeDirectory}/.nix-profile/bin/claude";
@@ -105,8 +104,8 @@
           {
             name = "claude-code";
             publisher = "anthropic";
-            version = "2.1.101";
-            sha256 = "sha256-L16rJFwOIK8afKXhZ2ekEEoRIRYfHoHTUHP0+iEL1BI=";
+            version = "2.1.123";
+            sha256 = "sha256-8vJHvwYdCdQb0kHNbM6KNp27BJh8RGrBmw++Zz7nLf4=";
           }
           {
             name = "mermaid-markdown-syntax-highlighting";

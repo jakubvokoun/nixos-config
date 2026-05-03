@@ -63,6 +63,7 @@ in {
     # Nix tools
     nixfmt-classic
     compose2nix
+    nh
 
     # Python
     (pkgs.python313.withPackages (ppkgs: [
@@ -123,13 +124,11 @@ in {
     sops
     age
     scrot
-    pom
     sqlite
     mariadb.client
     mycli
     pgcli
     litecli
-    ranger
     tlrc
     unzip
     shellcheck
@@ -138,7 +137,6 @@ in {
     viddy
     yazi
     openssl
-    ast-grep
     systemctl-tui
     dive
     openvpn
@@ -148,6 +146,7 @@ in {
     typstyle
     mdformat
     yamlfix
+    yamlfmt
     smartmontools
     gopass
     delta
@@ -162,7 +161,6 @@ in {
     google-chrome
     firefox
     librewolf
-    vivaldi
 
     # Communication
     thunderbird
@@ -182,24 +180,17 @@ in {
     aws-vault
     ansible
     ansible-lint
-    devtoolbox
     gnumake
     just
     kubernetes-helm
     helm-ls
     k6
     k9s
-    kdash
     kind
-    kail
     kubectl
-    kubectl-ktop
-    kubelogin
-    kubelogin-oidc
     kustomize
     kubectx
     minikube
-    teleport_18
     tenv
     vagrant
     sublime4
@@ -218,6 +209,10 @@ in {
     pkgsUnstable.glab
     pkgsUnstable.zarf
 
+    # Work GUI
+    devtoolbox
+    sourcegit
+
     # Office
     libreoffice-still
     hunspell
@@ -227,6 +222,7 @@ in {
     marp-cli
     gnuplot
     galculator
+    obsidian
 
     # Multimedia
     gimp
@@ -235,15 +231,13 @@ in {
     mpv
     vlc
     simplescreenrecorder
+    spotify
 
     # Misc
     meld
     blueman
     keepassxc
     seahorse
-    obsidian
-    sourcegit
-    pandoc
     cheese
     gnome-pomodoro
     bleachbit

@@ -12,11 +12,12 @@
       enable_audio_bell = "no";
       shell = "zsh";
       editor = "nvim";
-      window_padding_width = 0;
+      window_padding_width = 5;
       tab_bar_edge = "top";
       tab_bar_style = "powerline";
       tab_powerline_style = "angled";
       enabled_layouts = "vertical";
+      linux_display_server = "x11";
     };
     themeFile = "default";
     environment = { "TERM" = "xterm-256color"; };
