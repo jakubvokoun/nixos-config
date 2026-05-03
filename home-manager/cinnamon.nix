@@ -16,7 +16,7 @@ with lib.hm.gvariant; {
       panels-resizable = [ "1:false" ];
     };
 
-    "desktop/interface" = {
+    "org/cinnamon/desktop/interface" = {
       cursor-size = 24;
       cursor-theme = "Bibata-Modern-Classic";
       font-name = "DejaVu Sans 10";
@@ -25,24 +25,24 @@ with lib.hm.gvariant; {
       text-scaling-factor = 1.0;
     };
 
-    "desktop/media-handling" = { autorun-never = false; };
+    "org/cinnamon/desktop/media-handling" = { autorun-never = false; };
 
-    "desktop/peripherals/keyboard" = { numlock-state = true; };
+    "org/cinnamon/desktop/peripherals/keyboard" = { numlock-state = true; };
 
-    "desktop/peripherals/mouse" = {
+    "org/cinnamon/desktop/peripherals/mouse" = {
       double-click = 400;
       drag-threshold = 8;
       speed = 0.0;
     };
 
-    "desktop/peripherals/touchpad" = {
+    "org/cinnamon/desktop/peripherals/touchpad" = {
       natural-scroll = false;
       speed = 0.0;
     };
 
-    "desktop/session" = { idle-delay = mkUint32 300; };
+    "org/cinnamon/desktop/session" = { idle-delay = mkUint32 300; };
 
-    "desktop/screensaver" = {
+    "org/cinnamon/desktop/screensaver" = {
       idle-activation-enabled = true;
       lock-enabled = true;
       lock-delay = mkUint32 0;
@@ -50,13 +50,17 @@ with lib.hm.gvariant; {
       show-info-panel = true;
     };
 
-    "desktop/sound" = { event-sounds = false; };
+    "org/cinnamon/desktop/sound" = { event-sounds = false; };
 
-    "desktop/wm/preferences" = { titlebar-font = "DejaVu Sans Bold 10"; };
+    "org/cinnamon/desktop/wm/preferences" = {
+      titlebar-font = "DejaVu Sans Bold 10";
+    };
 
-    "settings-daemon/peripherals/keyboard" = { numlock-state = "on"; };
+    "org/cinnamon/settings-daemon/peripherals/keyboard" = {
+      numlock-state = "on";
+    };
 
-    "settings-daemon/plugins/power" = {
+    "org/cinnamon/settings-daemon/plugins/power" = {
       lid-close-ac-action = "suspend";
       lid-close-battery-action = "suspend";
       sleep-display-ac = 1800;
@@ -65,15 +69,12 @@ with lib.hm.gvariant; {
       sleep-inactive-battery-timeout = 0;
     };
 
-    "settings-daemon/plugins/xsettings" = { hinting = "full"; };
+    "org/cinnamon/settings-daemon/plugins/xsettings" = {
+      hinting = "full";
+      antialiasing = "rgba";
+    };
 
-    "theme" = { name = "Mint-Y-Blue"; };
+    "org/cinnamon/theme" = { name = "Mint-Y-Blue"; };
 
-  };
-
-  # TODO
-  xdg.autostart = {
-    enable = true;
-    entries = [ ];
   };
 }

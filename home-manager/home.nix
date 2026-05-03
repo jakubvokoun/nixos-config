@@ -12,6 +12,7 @@ in {
     # inputs.nix-colors.homeManagerModule
 
     # You can also split up your configuration and import pieces of it here:
+    ./ansible-lsp.nix
     ./fonts.nix
     ./fzf.nix
     ./git.nix
@@ -27,7 +28,6 @@ in {
     ./cinnamon.nix
     ./ulauncher.nix
     ./zellij.nix
-    ./ansible-lsp.nix
   ];
 
   nixpkgs = {
