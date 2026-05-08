@@ -28,6 +28,7 @@ in {
     ./cinnamon.nix
     ./ulauncher.nix
     ./zellij.nix
+    ./gpg.nix
   ];
 
   nixpkgs = {
