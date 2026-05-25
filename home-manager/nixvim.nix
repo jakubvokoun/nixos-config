@@ -43,7 +43,7 @@ in {
 
       cursorline = true;
 
-      laststatus = 3;
+      laststatus = 2;
 
       fileencoding = "utf-8";
 
@@ -52,8 +52,6 @@ in {
 
     # Plugins
     plugins = {
-      lualine.enable = true;
-
       cmp = {
         enable = true;
         settings = {
@@ -87,17 +85,6 @@ in {
             "<Up>" = "cmp.mapping.select_prev_item()";
             "<Tab>" =
               "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
-            #"<C-Tab>" =
-            #  "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-            #"<C-j>" = "cmp.mapping.select_next_item()";
-            #"<C-k>" = "cmp.mapping.select_prev_item()";
-            #"<C-e>" = "cmp.mapping.abort()";
-            #"<C-b>" = "cmp.mapping.scroll_docs(-4)";
-            #"<C-f>" = "cmp.mapping.scroll_docs(4)";
-            #"<C-Space>" = "cmp.mapping.complete()";
-            #"<C-CR>" = "cmp.mapping.confirm({ select = true })";
-            #"<S-CR>" =
-            #  "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
           };
         };
       };
@@ -233,8 +220,6 @@ in {
         };
       };
 
-      web-devicons.enable = true;
-
       zen-mode.enable = true;
 
       nvim-tree.enable = true;
@@ -247,6 +232,10 @@ in {
       typst-vim.enable = true;
 
       typst-preview.enable = true;
+
+      # Disalbed
+      web-devicons.enable = false;
+      mini.enable = false;
     };
   };
 }

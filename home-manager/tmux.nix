@@ -5,12 +5,14 @@
     terminal = "tmux-256color";
     historyLimit = 100000;
     keyMode = "vi";
-    plugins = with pkgs.tmuxPlugins; [
-      { plugin = cpu; }
-      { plugin = battery; }
-      { plugin = tokyo-night-tmux; }
-    ];
     extraConfig = ''
+      # Plugins & status line
+      set -g status-interval 5
+      set -g status-right-length 60
+      set -g status-right '#[bg=yellow] CPU: #{cpu_percentage} #[bg=magenta] RAM: #{ram_percentage} #[bg=cyan] Batt: #{battery_percentage} #[bg=green] %H:%M '
+      run-shell ${pkgs.tmuxPlugins.cpu}/share/tmux-plugins/cpu/cpu.tmux
+      run-shell ${pkgs.tmuxPlugins.battery}/share/tmux-plugins/battery/battery.tmux
+
       # Pane splits & new window should open to the same path as the current pane
       bind '"' split-window -v -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
@@ -39,5 +41,11 @@
     '';
   };
 
-  home.packages = with pkgs; [ xclip ];
+  home.packages = with pkgs; [
+    tmuxPlugins.cpu
+    tmuxPlugins.battery
+    acpi
+    sysstat
+    xclip
+  ];
 }

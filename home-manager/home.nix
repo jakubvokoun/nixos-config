@@ -137,6 +137,7 @@ in {
     shfmt
     viddy
     yazi
+    ranger
     openssl
     systemctl-tui
     dive
