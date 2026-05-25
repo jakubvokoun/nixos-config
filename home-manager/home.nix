@@ -208,7 +208,10 @@ in {
     tilt
     semgrep
     gitlab-ci-local
+    gitleaks
+    prettier
     pkgsUnstable.glab
+    pkgsUnstable.gh
     pkgsUnstable.zarf
 
     # Work GUI
