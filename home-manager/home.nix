@@ -1,34 +1,41 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 
-{ inputs, lib, config, pkgs, ... }:
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 let
-  llm-agents = builtins.getFlake "github:numtide/llm-agents.nix";
+  llm-agents = import ./llm-agents.nix {
+    inherit (pkgs.stdenv.hostPlatform) system;
+  };
   pkgsUnstable = import <nixpkgs-unstable> { };
-in {
+in
+{
   # You can import other home-manager modules here
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
 
     # You can also split up your configuration and import pieces of it here:
-    ./ansible-lsp.nix
     ./fonts.nix
     ./fzf.nix
     ./git.nix
     ./helix.nix
     ./kitty.nix
     ./wezterm.nix
+    ./ghostty.nix
     ./nixvim.nix
-    ./redshift.nix
     ./starship.nix
     ./tmux.nix
     ./vscode.nix
     ./zed.nix
-    ./cinnamon.nix
-    ./ulauncher.nix
     ./zellij.nix
     ./gpg.nix
+    ./gnome.nix
   ];
 
   nixpkgs = {
@@ -36,7 +43,6 @@ in {
     overlays = [
       # If you want to use overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
-      llm-agents.overlays.default
 
       # Or define it inline, for example:
       # (final: prev: {
@@ -62,7 +68,7 @@ in {
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
     # Nix tools
-    nixfmt-classic
+    nixfmt
     compose2nix
     nh
 
@@ -94,12 +100,15 @@ in {
 
     # PHP
     (pkgs.php84.buildEnv {
-      extensions = ({ enabled, all }:
-        enabled ++ (with all; [
+      extensions = (
+        { enabled, all }:
+        enabled
+        ++ (with all; [
           php84Extensions.xdebug
           php84Extensions.pcov
           php84Extensions.tokenizer
-        ]));
+        ])
+      );
     })
     php84Packages.composer
     deployer
@@ -151,12 +160,10 @@ in {
     yamlfmt
     smartmontools
     gopass
-    delta
 
     # NodeJS
     nodejs
     yarn
-    yarn2nix
     bun
 
     # Browsers
@@ -167,9 +174,7 @@ in {
     # Communication
     thunderbird
     slack
-    wasistlos
-    telegram-desktop
-    viber
+    karere
 
     # FTP
     filezilla
@@ -182,6 +187,7 @@ in {
     aws-vault
     ansible
     ansible-lint
+    ansible-language-server
     gnumake
     just
     kubernetes-helm
@@ -197,7 +203,7 @@ in {
     vagrant
     sublime4
     dig
-    dogdns
+    doggo
     packer
     geany
     checkov
@@ -206,17 +212,21 @@ in {
     trivy
     lazyjournal
     tilt
+    bazel
     semgrep
     gitlab-ci-local
     gitleaks
     prettier
+    tilt
     pkgsUnstable.glab
     pkgsUnstable.gh
     pkgsUnstable.zarf
 
     # Work GUI
+    gitg
     devtoolbox
     sourcegit
+    seabird
 
     # Office
     libreoffice-still
@@ -235,31 +245,26 @@ in {
     audacity
     mpv
     vlc
-    simplescreenrecorder
     spotify
 
     # Misc
     meld
-    blueman
+    overskride
     keepassxc
     seahorse
     cheese
     gnome-pomodoro
     bleachbit
+    newsflash
 
     # 3D print
     openscad
     super-slicer
 
-    # XDG
-    xdg-desktop-portal
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-gnome
-
     # AI
-    pkgs.llm-agents.claude-code
-    pkgs.llm-agents.opencode
-    pkgs.llm-agents.openspec
+    llm-agents.claude-code
+    llm-agents.opencode
+    llm-agents.openspec
   ];
 
   # Enable home-manager
@@ -270,12 +275,4 @@ in {
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "24.11";
-
-  xsession = {
-    enable = true;
-    profileExtra = ''
-      export $(${pkgs.gnome-keyring}/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
-    '';
-  };
 }
-

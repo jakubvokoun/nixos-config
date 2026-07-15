@@ -1,4 +1,11 @@
-{ inputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+{
   home.packages = [ pkgs.bat-extras.batman ];
 
   programs.zsh = {
@@ -53,23 +60,23 @@
       gc-nixos = "sudo nix-collect-garbage --delete-older-than 15d";
       gc-home = "home-manager expire-generations '-15 days'";
       git-wt-switch = "cd $(git worktree list | fzf | awk '{ print $1 }')";
-      git-branch-switch =
-        "git checkout $(git branch | fzf | sed 's/[*+]//' | awk '{ print $1 }')";
+      git-branch-switch = "git checkout $(git branch | fzf | sed 's/[*+]//' | awk '{ print $1 }')";
       k = "kubectl";
-      tldrf = ''
-        tldr --list 2> /dev/null | sort | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'';
+      tldrf = ''tldr --list 2> /dev/null | sort | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'';
     };
 
-    plugins = [{
-      name = "zsh-nix-shell";
-      file = "nix-shell.plugin.zsh";
-      src = pkgs.fetchFromGitHub {
-        owner = "chisui";
-        repo = "zsh-nix-shell";
-        rev = "v0.8.0";
-        sha256 = "1lzrn0n4fxfcgg65v0qhnj7wnybybqzs4adz7xsrkgmcsr0ii8b7";
-      };
-    }];
+    plugins = [
+      {
+        name = "zsh-nix-shell";
+        file = "nix-shell.plugin.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "chisui";
+          repo = "zsh-nix-shell";
+          rev = "v0.8.0";
+          sha256 = "1lzrn0n4fxfcgg65v0qhnj7wnybybqzs4adz7xsrkgmcsr0ii8b7";
+        };
+      }
+    ];
 
     history.size = 10000;
     history.path = "${config.xdg.dataHome}/zsh/history";

@@ -1,4 +1,11 @@
-{ inputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+{
   # Linux Days & InastallFest
 
   # Overriding themes
@@ -9,7 +16,9 @@
     tokyonight.enable = false;
     catppuccin = {
       enable = true;
-      settings = { flavour = "latte"; };
+      settings = {
+        flavour = "latte";
+      };
     };
   };
 }

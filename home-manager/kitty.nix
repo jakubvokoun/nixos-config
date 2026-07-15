@@ -1,4 +1,11 @@
-{ inputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+{
   programs.kitty = {
     enable = true;
     settings = {
@@ -18,8 +25,8 @@
       tab_powerline_style = "angled";
       enabled_layouts = "vertical";
       linux_display_server = "x11";
+      term = "xterm-256color";
     };
     themeFile = "default";
-    environment = { "TERM" = "xterm-256color"; };
   };
 }

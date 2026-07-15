@@ -1,11 +1,25 @@
-{ inputs, lib, config, pkgs, ... }:
-let pkgsUnstable = import <nixpkgs-unstable> { };
-in {
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+let
+  pkgsUnstable = import <nixpkgs-unstable> { };
+in
+{
   programs.zed-editor = {
     enable = true;
     package = pkgsUnstable.zed-editor-fhs;
-    extraPackages =
-      [ pkgs.nixd pkgs.ruff pkgs.nil pkgs.ty pkgs.shfmt pkgs.phpactor ];
+    extraPackages = [
+      pkgs.nixd
+      pkgs.ruff
+      pkgs.nil
+      pkgs.ty
+      pkgs.shfmt
+      pkgs.phpactor
+    ];
     extensions = [
       "ansible"
       "csv"
@@ -44,8 +58,12 @@ in {
       "jetbrains-themes"
     ];
     userSettings = {
-      features = { copilot = false; };
-      telemetry = { metrics = false; };
+      features = {
+        copilot = false;
+      };
+      telemetry = {
+        metrics = false;
+      };
       vim_mode = true;
       buffer_font_family = "JetBrainsMono Nerd Font";
       buffer_font_size = 14;
@@ -53,7 +71,9 @@ in {
       ui_font_family = "Zed Plex Sans";
       ui_font_size = 16;
       ui_font_weight = 500;
-      buffer_font_features = { calt = false; };
+      buffer_font_features = {
+        calt = false;
+      };
       theme = {
         mode = "system";
         light = "Jetbrains Light";
@@ -66,22 +86,40 @@ in {
       languages = {
         Rust = {
           language_servers = [ "rust-analyzer" ];
-          inlay_hints = { enabled = true; };
+          inlay_hints = {
+            enabled = true;
+          };
         };
         Go = {
           language_servers = [ "gopls" ];
-          inlay_hints = { enabled = true; };
+          inlay_hints = {
+            enabled = true;
+          };
         };
-        Python = { language_servers = [ "ty" "!basedpyright" ]; };
+        Python = {
+          language_servers = [
+            "ty"
+            "!basedpyright"
+          ];
+        };
         PHP = {
-          language_servers = [ "phpactor" "!intelephense" "!phptools" ];
+          language_servers = [
+            "phpactor"
+            "!intelephense"
+            "!phptools"
+          ];
         };
         "Shell Script" = {
           tab_size = 4;
           formatter = {
             external = {
               command = "shfmt";
-              arguments = [ "--filename" "{buffer_path}" "--indent" "4" ];
+              arguments = [
+                "--filename"
+                "{buffer_path}"
+                "--indent"
+                "4"
+              ];
             };
           };
           # format_on_save = "on";
@@ -91,8 +129,12 @@ in {
         rust-analyzer = {
           initialization_options = {
             inlayHints = {
-              lifetimeElisionHints = { enable = "skip_trivial"; };
-              closureReturnTypeHints = { enable = "with_block"; };
+              lifetimeElisionHints = {
+                enable = "skip_trivial";
+              };
+              closureReturnTypeHints = {
+                enable = "with_block";
+              };
             };
           };
         };
@@ -139,7 +181,11 @@ in {
           "**/helmfile.d/**/*.yml"
           "**/values*.yaml"
         ];
-        Dockerfile = [ "*.Dockerfile" "Dockerfile.*" "Dockerfile*" ];
+        Dockerfile = [
+          "*.Dockerfile"
+          "Dockerfile.*"
+          "Dockerfile*"
+        ];
       };
     };
   };

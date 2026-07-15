@@ -1,4 +1,11 @@
-{ inputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+{
   programs.vscode = {
     enable = true;
     profiles.default = {
@@ -25,7 +32,9 @@
           "**/site.yml" = "ansible";
         };
 
-        "[templ]" = { "editor.defaultFormatter" = "a-h.templ"; };
+        "[templ]" = {
+          "editor.defaultFormatter" = "a-h.templ";
+        };
 
         "[helm-template]" = {
           "yaml.validate" = false;
@@ -36,14 +45,13 @@
 
         "claudeCode" = {
           "preferredLocation" = "panel";
-          "claudeProcessWrapper" =
-            "${config.home.homeDirectory}/.nix-profile/bin/claude";
+          "claudeProcessWrapper" = "${config.home.homeDirectory}/.nix-profile/bin/claude";
         };
 
-        "ansible.python.interpreterPath" =
-          "${config.home.homeDirectory}/.nix-profile/bin/python3";
+        "ansible.python.interpreterPath" = "${config.home.homeDirectory}/.nix-profile/bin/python3";
       };
-      extensions = with pkgs.vscode-extensions;
+      extensions =
+        with pkgs.vscode-extensions;
         [
           # Extensions
           golang.go
@@ -73,10 +81,10 @@
           nefrob.vscode-just-syntax
           fill-labs.dependi
           bierner.markdown-mermaid
-          yzane.markdown-pdf
           myriad-dreamin.tinymist
           arrterian.nix-env-selector
-        ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        ]
+        ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
             name = "latte";
             publisher = "kasik96";
@@ -104,14 +112,14 @@
           {
             name = "claude-code";
             publisher = "anthropic";
-            version = "2.1.132";
-            sha256 = "sha256-VPARsKKWm/n2DOGEXgtdSszLAJDOni43s/XuQDlSxac=";
+            version = "2.1.177";
+            sha256 = "sha256-bnocd76Fa8c67bX4/YSObGP7ONnQ7P4R0+j+LrLhx2I=";
           }
           {
             name = "mermaid-markdown-syntax-highlighting";
             publisher = "bpruitt-goddard";
-            version = "1.8.0";
-            sha256 = "sha256-JATdvLubjfQ1oFXIkXrui6cSHmssgtd2o8l21DMU5B8=";
+            version = "1.8.1";
+            sha256 = "sha256-Vq0I4LaRajocbCDTdXKSTLCt647hBLYBTFF+RmWytCA=";
           }
         ];
     };

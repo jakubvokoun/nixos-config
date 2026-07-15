@@ -1,4 +1,11 @@
-{ inputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+{
   programs.wezterm = {
     enable = true;
     extraConfig = ''
@@ -8,6 +15,11 @@
         font_size = 12.0,
         front_end = "WebGpu",
         harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
+
+        -- Font rendering / antialiasing: grayscale + full hinting.
+        -- Subpixel (HorizontalLcd) is avoided: unreliable / fringes under Wayland.
+        freetype_load_target = "Normal",
+        freetype_render_target = "Normal",
 
         -- Gnome
         enable_wayland = false,
@@ -21,7 +33,7 @@
         },
 
         -- Color scheme
-        color_scheme = "iTerm2 Tango Dark",
+        color_scheme = "Builtin Tango Dark",
 
         -- Tab bar
         hide_tab_bar_if_only_one_tab = true,

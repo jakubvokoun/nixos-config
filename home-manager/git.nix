@@ -1,4 +1,11 @@
-{ inputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+{
   programs.git = {
     enable = true;
     settings = {
@@ -8,7 +15,9 @@
       };
       push.autoSetupRemote = true;
     };
-    lfs = { enable = true; };
+    lfs = {
+      enable = true;
+    };
   };
 
   home.packages = [ pkgs.git-filter-repo ];

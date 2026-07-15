@@ -1,10 +1,18 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 let
-  nixvim = import (builtins.fetchGit {
-    url = "https://github.com/nix-community/nixvim";
-    ref = "nixos-25.11";
-  });
-in {
+  nixvim = import (
+    builtins.fetchGit {
+      url = "https://github.com/nix-community/nixvim";
+      ref = "nixos-26.05";
+    }
+  );
+in
+{
   imports = [ nixvim.homeModules.nixvim ];
 
   programs.nixvim = {
@@ -16,10 +24,14 @@ in {
 
     colorschemes.tokyonight = {
       enable = true;
-      settings = { style = "night"; };
+      settings = {
+        style = "night";
+      };
     };
 
-    globals = { mapleader = " "; };
+    globals = {
+      mapleader = " ";
+    };
 
     extraPlugins = [ pkgs.vimPlugins.vim-caddyfile ];
 
@@ -50,19 +62,38 @@ in {
       termguicolors = true;
     };
 
+    # Custom filetypes
+    filetype = {
+      extension = {
+        tilt = "starlark";
+      };
+      filename = {
+        "Tiltfile" = "starlark";
+        "tiltfile" = "starlark";
+      };
+    };
+
     # Plugins
     plugins = {
       cmp = {
         enable = true;
         settings = {
           autoEnableSources = true;
-          experimental = { ghost_text = false; };
+          experimental = {
+            ghost_text = false;
+          };
           performance = {
             debounce = 60;
             fetchingTimeout = 200;
             maxViewEntries = 30;
           };
-          formatting = { fields = [ "kind" "abbr" "menu" ]; };
+          formatting = {
+            fields = [
+              "kind"
+              "abbr"
+              "menu"
+            ];
+          };
           sources = [
             { name = "git"; }
             { name = "nvim_lsp"; }
@@ -83,17 +114,26 @@ in {
           mapping = {
             "<Down>" = "cmp.mapping.select_next_item()";
             "<Up>" = "cmp.mapping.select_prev_item()";
-            "<Tab>" =
-              "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
+            "<Tab>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
           };
         };
       };
 
-      cmp-nvim-lsp = { enable = true; }; # lsp
-      cmp-buffer = { enable = true; };
-      cmp-path = { enable = true; }; # file system paths
-      cmp_luasnip = { enable = true; }; # snippets
-      cmp-cmdline = { enable = false; }; # autocomplete for cmdline
+      cmp-nvim-lsp = {
+        enable = true;
+      }; # lsp
+      cmp-buffer = {
+        enable = true;
+      };
+      cmp-path = {
+        enable = true;
+      }; # file system paths
+      cmp_luasnip = {
+        enable = true;
+      }; # snippets
+      cmp-cmdline = {
+        enable = false;
+      }; # autocomplete for cmdline
 
       nix.enable = true;
 
@@ -135,20 +175,20 @@ in {
 
         servers = {
           bashls.enable = true;
+          ccls.enable = true;
           dockerls.enable = true;
           docker_compose_language_service.enable = true;
           gopls.enable = true;
           ansiblels = {
             enable = true;
-            package = null;
+            package = pkgs.ansible-language-server;
           };
           lua_ls.enable = true;
           pylsp = {
             enable = true;
             settings.plugins.pylint = {
               enabled = true;
-              executable =
-                "${config.home.homeDirectory}/.nix-profile/bin/pylint";
+              executable = "${config.home.homeDirectory}/.nix-profile/bin/pylint";
             };
           };
           terraformls.enable = true;
@@ -177,17 +217,6 @@ in {
         settings = {
           highlight.enable = true;
           indent.enable = true;
-        };
-      };
-
-      treesitter-refactor = {
-        enable = true;
-        settings = {
-          highlight_definitions = {
-            enable = true;
-            # Set to false if you have an `updatetime` of ~100.
-            clear_on_cursor_move = false;
-          };
         };
       };
 
@@ -226,7 +255,9 @@ in {
 
       tiny-inline-diagnostic = {
         enable = true;
-        settings = { preset = "classic"; };
+        settings = {
+          preset = "classic";
+        };
       };
 
       typst-vim.enable = true;

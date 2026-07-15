@@ -20,6 +20,7 @@
   - [dconf](#dconf)
   - [Using llm-agents.nix](#using-llm-agentsnix)
   - [Using unstable packages](#using-unstable-packages)
+  - [Pinning packages](#pinning-packages)
 - [Upgrade Notes](#upgrade-notes)
 - [Cachix](#cachix)
 - [Theme Overrides](#theme-overrides)
@@ -340,6 +341,44 @@ nix-channel --update
 let pkgsUnstable = import <nixpkgs-unstable> { };
 in {
   home.packages = [ pkgsUnstable.claude-code ];
+}
+```
+
+### Pinning packages
+
+Pin nixpkgs to a specific commit — useful to keep a package at an exact
+version regardless of channel updates. Find the commit that has the desired
+version (e.g. via <https://www.nixhub.io/> or nixpkgs history), then:
+
+```sh
+# Get sha256 for the tarball
+nix-prefetch-url --unpack https://github.com/NixOS/nixpkgs/archive/<commit>.tar.gz
+```
+
+```nix
+# ~/.config/home-manager/home.nix
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+let
+  # See: https://github.com/NixOS/nixpkgs/commit/ccbb89559302533980045a16bc329708fe731f66
+  pinnedPkgs =
+    import
+      (builtins.fetchTarball {
+        url = "https://github.com/NixOS/nixpkgs/archive/ccbb89559302533980045a16bc329708fe731f66.tar.gz";
+        sha256 = "0clqy9l3zx61w09h477scxfhffvdhg23kn3kla1sh8lav10xwdgg"; # output of nix-prefetch-url
+      })
+      {
+        inherit (pkgs) system;
+        config.allowUnfree = true;
+      };
+in
+{
+  home.packages = [ pinnedPkgs.some-package ];
 }
 ```
 
