@@ -1,0 +1,9 @@
+# nix build outputs
+result
+result-*
+
+# build-vm scratch disk
+*.qcow2
+
+# machine-local overrides, may carry credentials
+*.local.nix
