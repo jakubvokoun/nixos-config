@@ -17,6 +17,7 @@
       set -g status-interval 5
       set -g status-right-length 60
       set -g status-right '#[bg=yellow] CPU: #{cpu_percentage} #[bg=magenta] RAM: #{ram_percentage} #[bg=cyan] Batt: #{battery_percentage} #[bg=green] %H:%M '
+      set -g window-status-current-style 'bg=colour208,fg=black'
       run-shell ${pkgs.tmuxPlugins.cpu}/share/tmux-plugins/cpu/cpu.tmux
       run-shell ${pkgs.tmuxPlugins.battery}/share/tmux-plugins/battery/battery.tmux
 
