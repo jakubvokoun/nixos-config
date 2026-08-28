@@ -407,13 +407,7 @@ Use `lib.mkForce` to override a value already set in another imported module:
 programs.helix.settings.theme  = lib.mkForce "catppuccin_latte";
 programs.zellij.settings.theme = lib.mkForce "catppuccin-latte";
 programs.kitty.themeFile       = lib.mkForce "Catppuccin-Latte";
-programs.nixvim.colorschemes   = lib.mkForce {
-  tokyonight.enable = false;
-  catppuccin = {
-    enable = true;
-    settings.flavour = "latte";
-  };
-};
+programs.nixvim.colorschemes.catppuccin.settings.flavour = lib.mkForce "latte";
 ```
 
 ## System

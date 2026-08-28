@@ -15,10 +15,10 @@
     viAlias = true;
     vimAlias = true;
 
-    colorschemes.tokyonight = {
+    colorschemes.catppuccin = {
       enable = true;
       settings = {
-        style = "night";
+        flavour = "mocha";
       };
     };
 

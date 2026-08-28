@@ -13,9 +13,9 @@ in
 {
   home.packages = with pkgs; [
     # Nix tools
-    nixfmt
     compose2nix
     nh
+    nixfmt
 
     # Python
     (pkgs.python313.withPackages (ppkgs: [
@@ -24,154 +24,175 @@ in
     ]))
 
     # Go
-    go_1_25
-    gopls
-    gotools
-    gotestsum
-    gocover-cobertura
-    delve
-    templ
     air
+    delve
+    go_1_25
+    gocover-cobertura
+    gopls
+    gotestsum
+    gotools
+    templ
 
     # Rust
-    rustup
     gcc
+    rustup
 
-    # Basic CLI apps
-    htop
+    # NodeJS
+    bun
+    nodejs
+
+    # CLI - system & monitoring
     btop
-    mc
     duf
-    bat
-    ripgrep
-    fd
-    tig
-    jq
-    yq-go
-    tree
-    glow
-    slides
-    lazygit
-    lazydocker
     fastfetch
-    gnupg
-    sops
-    age
-    sqlite
+    htop
+    smartmontools
+    systemctl-tui
+    viddy
+    wiper
+
+    # CLI - files & navigation
+    bat
+    fd
+    mc
+    ranger
+    tree
+    unzip
+    yazi
+
+    # CLI - search, text & data
+    glow
+    jq
+    mdformat
+    ripgrep
+    slides
+    yamlfix
+    yamlfmt
+    yq-go
+
+    # CLI - git & containers
+    dive
+    lazydocker
+    lazygit
+    tig
+
+    # CLI - databases
+    litecli
     mariadb.client
     mycli
     pgcli
-    litecli
-    tlrc
-    unzip
+    sqlite
+
+    # CLI - security & secrets
+    age
+    gnupg
+    gopass
+    openssl
+    sops
+
+    # CLI - shell tooling
     shellcheck
     shellspec
     shfmt
-    viddy
-    yazi
-    ranger
-    openssl
-    systemctl-tui
-    dive
-    openvpn
-    mermaid-cli
-    typst
-    tinymist
-    typstyle
-    mdformat
-    yamlfix
-    yamlfmt
-    smartmontools
-    gopass
-    wiper
+    tlrc
 
-    # NodeJS
-    nodejs
-    bun
+    # CLI - docs & misc
+    mermaid-cli
+    openvpn
+    tinymist
+    typst
+    typstyle
 
     # Browsers
-    google-chrome
     firefox
+    google-chrome
     librewolf
 
     # Communication
-    thunderbird
-    slack
     karere
+    slack
+    thunderbird
 
     # FTP
     filezilla
 
-    # Work
+    # Work - cloud & infra
+    ansible
+    ansible-language-server
+    ansible-lint
     awscli2
     aws-vault
-    ansible
-    ansible-lint
-    ansible-language-server
-    gnumake
-    just
-    kubernetes-helm
-    helm-ls
+    dig
+    doggo
+    packer
+    tenv
+    vagrant
+
+    # Work - kubernetes
     k6
     k9s
     kind
     kubectl
-    kustomize
     kubectx
+    kubernetes-helm
+    helm-ls
+    kustomize
     minikube
-    tenv
-    vagrant
-    dig
-    doggo
-    packer
+    tilt
+
+    # Work - build & CI
+    bazel
+    gitlab-ci-local
+    gnumake
+    just
+    pkgsUnstable.gh
+    pkgsUnstable.glab
+    prettier
+
+    # Work - security & supply chain
     checkov
+    cosign
     djlint
+    gitleaks
     hadolint
     lazyjournal
-    tilt
-    bazel
     semgrep
-    gitlab-ci-local
-    gitleaks
-    prettier
-    pkgsUnstable.glab
-    pkgsUnstable.gh
-    pkgsUnstable.trivy
-    pkgsUnstable.syft
     pkgsUnstable.grype
+    pkgsUnstable.syft
+    pkgsUnstable.trivy
     pkgsUnstable.zarf
 
     # Work GUI
-    gitg
     devtoolbox
-    sourcegit
+    gitg
     seabird
+    sourcegit
 
     # Office
-    libreoffice-still
+    galculator
+    gnuplot
     hunspell
     hunspellDicts.cs_CZ
-    hunspellDicts.en_US
     hunspellDicts.de_DE
+    hunspellDicts.en_US
+    libreoffice-still
     marp-cli
-    gnuplot
-    galculator
     obsidian
 
     # Multimedia
+    audacity
     gimp
     inkscape
-    audacity
     spotify
 
     # Misc
-    meld
-    overskride
-    keepassxc
-    seahorse
     cheese
     gnome-pomodoro
+    keepassxc
+    meld
     newsflash
+    overskride
+    seahorse
 
     # 3D print
     openscad
@@ -179,8 +200,8 @@ in
 
     # AI
     llm-agents.claude-code
+    llm-agents.codegraph
     llm-agents.opencode
     llm-agents.openspec
-    llm-agents.codegraph
   ];
 }

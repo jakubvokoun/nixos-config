@@ -15,12 +15,7 @@
   # pulled in by programs.git.includes in ./git.nix.
 
   home.packages = with pkgs; [
-    cyclonedx-cli
-    govc
-    lnav
-    opendkim
-    openfortivpn
-    pre-commit
+    # Python tooling
     python313Packages.black
     python313Packages.isort
     python313Packages.junit2html
@@ -30,10 +25,24 @@
     python313Packages.pyupgrade
     python313Packages.pyvmomi
     python313Packages.reorder-python-imports
+
+    # Virtualization & images
+    govc
     qemu
     quickemu
-    squashfsTools
     squashfs-tools-ng
+    squashfsTools
+
+    # Dev tooling
+    lnav
+    pre-commit
     pkgsUnstable.kiro
+
+    # Security & supply chain
+    cyclonedx-cli
+
+    # Network & mail
+    opendkim
+    openfortivpn
   ];
 }

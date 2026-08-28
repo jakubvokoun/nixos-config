@@ -45,7 +45,7 @@
       ];
     };
     settings = {
-      theme = "tokyonight";
+      theme = "catppuccin_mocha";
       editor = {
         soft-wrap = {
           enable = true;
