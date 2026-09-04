@@ -6,6 +6,8 @@
     ./hardware.nix
     ../../mixins/docker.nix
     ../../mixins/gnome.nix
+    ../../mixins/gnome-rdp.nix
+    ../../mixins/tailscale.nix
     ../../mixins/kmscon.nix
   ];
 

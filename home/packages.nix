@@ -116,6 +116,9 @@ in
     # FTP
     filezilla
 
+    # Remote desktop
+    remmina
+
     # Work - cloud & infra
     ansible
     ansible-language-server
@@ -125,6 +128,7 @@ in
     dig
     doggo
     packer
+    ssm-session-manager-plugin
     tenv
     vagrant
 
@@ -203,5 +207,6 @@ in
     llm-agents.codegraph
     llm-agents.opencode
     llm-agents.openspec
+    llm-agents.pi
   ];
 }

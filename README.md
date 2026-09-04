@@ -15,6 +15,7 @@ Home Manager runs as a NixOS module, so one `nixos-rebuild` applies everything.
   - [Garbage Collection](#garbage-collection)
 - [Flake Inputs](#flake-inputs)
 - [Secrets](#secrets)
+  - [gopass and gpg-agent (SSH / headless)](#gopass-and-gpg-agent-ssh--headless)
 - [Home Manager](#home-manager)
   - [Options](#options)
   - [User-level systemd services](#user-level-systemd-services)
@@ -27,6 +28,7 @@ Home Manager runs as a NixOS module, so one `nixos-rebuild` applies everything.
   - [SSD](#ssd)
   - [Zsh](#zsh)
   - [Printing](#printing)
+  - [Remote Desktop (RDP)](#remote-desktop-rdp)
   - [Virtualisation](#virtualisation)
 - [Migrating an existing install](#migrating-an-existing-install)
 - [Bootstrapping a new machine](#bootstrapping-a-new-machine)
@@ -282,6 +284,43 @@ If a token ever does reach the store, revoke it first — removing the line only
 stops it recurring, it does not unpublish it. Then `nix-collect-garbage -d` as
 both the user and root.
 
+### gopass and gpg-agent (SSH / headless)
+
+`home/gpg.nix` selects the pinentry by session: a GUI popup when `DISPLAY` /
+`WAYLAND_DISPLAY` is set, `pinentry-curses` otherwise. A terminal pinentry
+otherwise grabs the TTY an interactive CLI is running in — including a tool that
+shells out to `gopass` at startup (e.g. an MCP server) — which freezes that CLI.
+
+The catch over SSH: a **background** process cannot be prompted at all — it has
+no interactive terminal to draw a curses prompt on. So prime the passphrase into
+the agent cache from your own shell **before** starting anything that reads the
+secret:
+
+```sh
+export GPG_TTY=$(tty)                     # target the tty pinentry at this shell
+gpg-connect-agent updatestartuptty /bye   # point the agent at this TTY
+gopass show -o <path/to/secret> >/dev/null # enter passphrase in the curses prompt
+# now start the tool that reads the secret — its gopass call hits the cache
+```
+
+`maxCacheTtl = 999999` (~11.5 days) keeps it cached, so you re-prime only after a
+reboot or `gpgconf --kill gpg-agent`.
+
+**Fully unattended** (cron / CI, no interactive entry) — preset the passphrase:
+
+```nix
+# services.gpg-agent in home/gpg.nix
+extraConfig = "allow-preset-passphrase";
+```
+
+```sh
+KG=$(gpg --list-secret-keys --with-keygrip | awk '/Keygrip/{print $3; exit}')
+"$(gpgconf --list-dirs libexecdir)/gpg-preset-passphrase" --preset "$KG"  # passphrase on stdin
+```
+
+You still supply the passphrase once per agent lifetime; after preset every
+decrypt is non-interactive until the agent restarts.
+
 ## Home Manager
 
 Wired in as a NixOS module in `flake.nix`:
@@ -420,6 +459,7 @@ programs.nixvim.colorschemes.catppuccin.settings.flavour = lib.mkForce "latte";
 | File | Purpose |
 |---|---|
 | `gnome.nix` | GDM + GNOME, fonts, dconf |
+| `gnome-rdp.nix` | GNOME Remote Desktop (RDP), system mode |
 | `docker.nix` | Docker (daemon mode) |
 | `rootless-docker.nix` | Docker (rootless mode) |
 | `containerd.nix` | containerd |
@@ -467,6 +507,46 @@ services.avahi = {
 ```
 
 CUPS driver: **IPP Everywhere** — connection: `socket://printer.home`
+
+### Remote Desktop (RDP)
+
+`gnome-rdp.nix` enables GNOME Remote Desktop in system ("remote login") mode on
+port 3389. Add it to a host's `imports`; it declaratively enables the service,
+generates a self-signed TLS certificate on the host, and turns RDP on — all from
+an idempotent activation service, since the upstream NixOS module exposes only
+`enable`. Both `e14` and `t440` import it.
+
+Access is **over Tailscale only**: port 3389 is opened solely on the
+`tailscale0` interface, never on the LAN or any public interface, so the desktop
+is reachable from the tailnet and nowhere else. The tailnet's key-authenticated
+WireGuard transport also carries RDP's weak self-signed TLS. This requires the
+companion `tailscale.nix` mixin (`services.tailscale.enable` plus the `trayscale`
+GUI); after first boot, authenticate the host once:
+
+```bash
+sudo tailscale up
+```
+
+Then point `remmina` (in `home/packages.nix`) at the host's MagicDNS name or
+`100.x` tailnet address on port 3389.
+
+The daemon only accepts `credentials` authentication, so each client must
+present a username and password stored on the host. A password cannot live in
+the Nix store, so the mixin reads it at activation time from a root-only file
+kept out of git:
+
+```bash
+sudo install -Dm600 /dev/stdin /etc/gnome-remote-desktop/credentials <<'EOF'
+GRD_RDP_USERNAME=jakub
+GRD_RDP_PASSWORD=<strong password>
+EOF
+sudo systemctl restart gnome-remote-desktop-setup.service
+```
+
+Connect with that username and password over the tailnet. To rotate the
+password, edit the file and restart `gnome-remote-desktop-setup.service`. Note
+the password is visible in the systemd journal (`pkexec` logs the `grdctl`
+invocation); the tailnet-only exposure keeps that acceptable.
 
 ### Virtualisation
 
