@@ -45,10 +45,10 @@
 
         "claudeCode" = {
           "preferredLocation" = "panel";
-          "claudeProcessWrapper" = "${config.home.homeDirectory}/.nix-profile/bin/claude";
+          "claudeProcessWrapper" = "${config.home.profileDirectory}/bin/claude";
         };
 
-        "ansible.python.interpreterPath" = "${config.home.homeDirectory}/.nix-profile/bin/python3";
+        "ansible.python.interpreterPath" = "${config.home.profileDirectory}/bin/python3";
       };
       extensions =
         with pkgs.vscode-extensions;
@@ -94,8 +94,8 @@
           {
             name = "vscode-laravel";
             publisher = "laravel";
-            version = "1.7.0";
-            sha256 = "sha256-5PVbv5hWIdsOHvYttnf2BPeqfPXsOVENrnRyiUf/Hlg=";
+            version = "2.0.0";
+            sha256 = "sha256-tBAEtnRavj7+hMl7yJEf6wnItWxTI/v+f2TXXavRqGU=";
           }
           {
             name = "vscode-blade-formatter";
@@ -112,8 +112,8 @@
           {
             name = "claude-code";
             publisher = "anthropic";
-            version = "2.1.177";
-            sha256 = "sha256-bnocd76Fa8c67bX4/YSObGP7ONnQ7P4R0+j+LrLhx2I=";
+            version = "2.1.263";
+            sha256 = "sha256-QZuQkNb3ePeDeT7TaC3fIJT6AZ6KVD8XZyzZWQF2EYI=";
           }
           {
             name = "mermaid-markdown-syntax-highlighting";

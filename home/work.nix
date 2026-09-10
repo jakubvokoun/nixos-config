@@ -40,6 +40,9 @@
 
     # Security & supply chain
     cyclonedx-cli
+    yubikey-manager
+    yubioath-flutter
+    ssss
 
     # Network & mail
     opendkim

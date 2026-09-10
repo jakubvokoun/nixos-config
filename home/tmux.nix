@@ -13,6 +13,14 @@
     historyLimit = 100000;
     keyMode = "vi";
     extraConfig = ''
+      # Window notifications
+      # Flag windows with activity (#) and bell (!) in the status line.
+      # Keep the regular background; default style reverses it, so disable that.
+      setw -g monitor-activity on
+      setw -g monitor-bell on
+      set -g window-status-activity-style default
+      set -g window-status-bell-style default
+
       # Plugins & status line
       set -g status-interval 5
       set -g status-right-length 60

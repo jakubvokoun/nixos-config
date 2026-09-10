@@ -84,6 +84,8 @@
     openFirewall = true;
   };
 
+  services.pcscd.enable = true;
+
   # Enable sound with pipewire.
   #sound.enable = true;
   services.pulseaudio.enable = false;
