@@ -117,7 +117,8 @@ in
     filezilla
 
     # Remote desktop
-    remmina
+    #remmina
+    rustdesk
 
     # Work - cloud & infra
     ansible
@@ -203,6 +204,7 @@ in
     super-slicer
 
     # AI
+    pkgsUnstable.herdr
     llm-agents.claude-code
     llm-agents.codegraph
     llm-agents.opencode

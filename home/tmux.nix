@@ -53,7 +53,7 @@
         -d "#{pane_current_path}" \
         -w 80% \
         -h 80% \
-        -E "yazi"
+        -E "ranger"
     '';
   };
 

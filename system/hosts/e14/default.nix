@@ -5,7 +5,7 @@
     ./hardware.nix
     ../../mixins/docker.nix
     ../../mixins/gnome.nix
-    ../../mixins/gnome-rdp.nix
+    #../../mixins/gnome-rdp.nix
     ../../mixins/tailscale.nix
     ../../mixins/virtualbox.nix
     ../../mixins/libvirt.nix
