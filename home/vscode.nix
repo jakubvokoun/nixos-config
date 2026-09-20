@@ -41,7 +41,7 @@
           "yaml.format.enable" = false;
         };
 
-        "workbench.colorTheme" = "Default Dark+";
+        "workbench.colorTheme" = "Dark+";
 
         "claudeCode" = {
           "preferredLocation" = "panel";
@@ -94,8 +94,8 @@
           {
             name = "vscode-laravel";
             publisher = "laravel";
-            version = "2.0.0";
-            sha256 = "sha256-tBAEtnRavj7+hMl7yJEf6wnItWxTI/v+f2TXXavRqGU=";
+            version = "2.0.1";
+            sha256 = "sha256-oiknaPXmScZBhheVmnWmE+P2gmJvugd8YrHEr53K9Vg=";
           }
           {
             name = "vscode-blade-formatter";
@@ -112,8 +112,8 @@
           {
             name = "claude-code";
             publisher = "anthropic";
-            version = "2.1.263";
-            sha256 = "sha256-QZuQkNb3ePeDeT7TaC3fIJT6AZ6KVD8XZyzZWQF2EYI=";
+            version = "2.1.278";
+            sha256 = "sha256-2j+U1PioP+mHFpyYHhq8OHNIIXivZaNg/x3B4IIuFA8=";
           }
           {
             name = "mermaid-markdown-syntax-highlighting";
