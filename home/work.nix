@@ -6,6 +6,28 @@
   pkgsUnstable,
   ...
 }:
+let
+  # Ephemeral Chromium: disposable HOME+XDG on tmpfs, no persistence anywhere real.
+  # Distinct name so it lives alongside the raw `chromium` (below) instead of
+  # shadowing it. Reused by the Selenium MCP server (see gitlab-mcp/shell.nix),
+  # which points CHROME_BIN at this same store path — no second chromium download.
+  chromiumEphemeral = pkgs.writeShellScriptBin "chromium-ephemeral" ''
+    base="''${XDG_RUNTIME_DIR:-/dev/shm}"
+    session="$(mktemp -d "$base/chromium-ephemeral.XXXXXX")"
+    export HOME="$session/home"
+    export XDG_CONFIG_HOME="$session/config"
+    export XDG_CACHE_HOME="$session/cache"
+    export XDG_DATA_HOME="$session/data"
+    export XDG_STATE_HOME="$session/state"
+    mkdir -p "$HOME" "$XDG_CONFIG_HOME" "$XDG_CACHE_HOME" "$XDG_DATA_HOME" "$XDG_STATE_HOME"
+    exec ${pkgs.chromium}/bin/chromium \
+      --no-first-run --no-default-browser-check \
+      --disable-breakpad --disable-crash-reporter \
+      --password-store=basic --use-mock-keychain \
+      --disable-background-networking --disable-component-update \
+      "$@"
+  '';
+in
 {
   # Tooling needed for client work.
   #
@@ -47,5 +69,10 @@
     # Network & mail
     opendkim
     openfortivpn
+
+    # Web UI testing (Selenium MCP + pytest-selenium)
+    chromium # raw, persistent-profile browser
+    chromiumEphemeral # `chromium-ephemeral` on PATH -> tmpfs-only, no profile survives
+    chromedriver
   ];
 }
