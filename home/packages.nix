@@ -189,6 +189,7 @@ in
     gimp
     inkscape
     spotify
+    kooha
 
     # Misc
     cheese
