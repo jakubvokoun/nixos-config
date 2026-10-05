@@ -25,6 +25,7 @@
 
     # GNOME Shell extensions used below
     gnomeExtensions.appindicator # tray icons (AppIndicator/KStatusNotifier)
+    gnomeExtensions.quake-terminal # drop-down terminal
 
     # Provides org.gnome.keyring.SystemPrompter
     gcr

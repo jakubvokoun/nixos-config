@@ -70,9 +70,7 @@ in
     yamlfmt
     yq-go
 
-    # CLI - git & containers
-    dive
-    lazydocker
+    # CLI - git (container tools live in system/mixins/podman.nix)
     lazygit
     tig
 
@@ -85,6 +83,7 @@ in
 
     # CLI - security & secrets
     age
+    bubblewrap
     gnupg
     gopass
     openssl

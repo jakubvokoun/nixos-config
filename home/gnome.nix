@@ -11,6 +11,7 @@
 
   home.packages = with pkgs; [
     gnomeExtensions.appindicator
+    gnomeExtensions.quake-terminal
     wl-clipboard
   ];
 
@@ -23,10 +24,13 @@
   };
 
   dconf.settings = {
-    # Enable the extension
+    # Enable the extensions
     "org/gnome/shell" = {
       disable-user-extensions = false;
-      enabled-extensions = [ "appindicatorsupport@rgcjonas.gmail.com" ];
+      enabled-extensions = [
+        "appindicatorsupport@rgcjonas.gmail.com"
+        "quake-terminal@diegodario88.github.io"
+      ];
     };
 
     # Fixed number of workspaces = 4

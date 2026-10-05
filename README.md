@@ -81,8 +81,8 @@ The host directory supplies only what is specific to that machine.
 
 | Host | Purpose |
 |---|---|
-| `e14` | ThinkPad E14 Gen 3. UEFI, LUKS root and swap, Docker + VirtualBox + libvirt. |
-| `t440` | ThinkPad T440. Legacy BIOS GRUB, no encryption, Docker only. No work tooling. |
+| `e14` | ThinkPad E14 Gen 3. UEFI, LUKS root and swap, Podman + VirtualBox + libvirt. |
+| `t440` | ThinkPad T440. Legacy BIOS GRUB, no encryption, Podman only. No work tooling. |
 | `vm` | Hardware-free. No LUKS, no partition UUIDs, no firmware assumptions — builds on any x86_64 machine. |
 
 `mkHost` takes `work` (default `true`), which decides whether `home/work.nix`
@@ -460,6 +460,7 @@ programs.nixvim.colorschemes.catppuccin.settings.flavour = lib.mkForce "latte";
 |---|---|
 | `gnome.nix` | GDM + GNOME, fonts, dconf |
 | `gnome-rdp.nix` | GNOME Remote Desktop (RDP), system mode |
+| `podman.nix` | Podman, rootless, with Docker CLI/API/compose compatibility and GUI/TUI tools |
 | `docker.nix` | Docker (daemon mode) |
 | `rootless-docker.nix` | Docker (rootless mode) |
 | `containerd.nix` | containerd |
@@ -549,6 +550,36 @@ the password is visible in the systemd journal (`pkexec` logs the `grdctl`
 invocation); the tailnet-only exposure keeps that acceptable.
 
 ### Virtualisation
+
+#### Podman
+
+`podman.nix` is the container runtime on `e14` and `t440`. It replaces Docker
+and conflicts with `docker.nix` / `rootless-docker.nix` (both claim the `docker`
+binary).
+
+- **Docker CLI**: `docker` is a shim to `podman` (`dockerCompat`).
+- **Compose**: `docker compose` / `podman compose` call `docker-compose`
+  (found on PATH) against the Podman API socket.
+- **Docker API**: `DOCKER_HOST` points at the per-user, socket-activated
+  `$XDG_RUNTIME_DIR/podman/podman.sock`, so Docker API clients (lazydocker,
+  dive, testcontainers, VS Code) use rootless Podman. The rootful socket
+  `/run/podman/podman.sock` is reachable through the `podman` group.
+- **Networking**: rootless containers use pasta (`passt`). The default network
+  has DNS enabled, so containers resolve each other by name.
+- **Registries**: short image names resolve to `docker.io`.
+- **Tools**: `podman-desktop`, `pods` (GUI); `podman-tui`, `lazydocker`,
+  `oxker`, `dive` (TUI).
+- **Cleanup**: weekly `podman system prune --all`.
+
+Rootless Podman needs sub-UID/GID ranges; NixOS allocates them for normal users
+automatically (`autoSubUidGidRange`). Existing Docker images and volumes are not
+migrated — pull or rebuild them with Podman. Check the setup:
+
+```bash
+podman info --format '{{.Host.NetworkBackend}} {{.Host.RootlessNetworkCmd}}'
+systemctl --user status podman.socket
+docker compose version
+```
 
 #### Rootless Docker
 

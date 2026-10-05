@@ -3,7 +3,7 @@
 {
   imports = [
     ./hardware.nix
-    ../../mixins/docker.nix
+    ../../mixins/podman.nix
     ../../mixins/gnome.nix
     #../../mixins/gnome-rdp.nix
     ../../mixins/tailscale.nix
