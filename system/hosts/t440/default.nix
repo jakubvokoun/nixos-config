@@ -1,5 +1,5 @@
 # ThinkPad T440. Haswell, 8 GB RAM, spinning-rust-era SATA SSD — deliberately
-# slimmer than the E14: no VirtualBox, no libvirt, no incus, no work tooling.
+# slimmer than the E14: no libvirt, no incus, no work tooling.
 { lib, ... }:
 {
   imports = [

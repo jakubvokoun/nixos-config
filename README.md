@@ -81,7 +81,7 @@ The host directory supplies only what is specific to that machine.
 
 | Host | Purpose |
 |---|---|
-| `e14` | ThinkPad E14 Gen 3. UEFI, LUKS root and swap, Podman + VirtualBox + libvirt. |
+| `e14` | ThinkPad E14 Gen 3. UEFI, LUKS root and swap, Podman + libvirt. |
 | `t440` | ThinkPad T440. Legacy BIOS GRUB, no encryption, Podman only. No work tooling. |
 | `vm` | Hardware-free. No LUKS, no partition UUIDs, no firmware assumptions — builds on any x86_64 machine. |
 

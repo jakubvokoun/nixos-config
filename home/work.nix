@@ -36,6 +36,9 @@ in
   # in Nix. Per-host git credentials go in ~/.config/git/local (0600, untracked),
   # pulled in by programs.git.includes in ./git.nix.
 
+  # VirtualBox is gone from e14; vagrant-libvirt (KVM) drives every box.
+  home.sessionVariables.VAGRANT_DEFAULT_PROVIDER = "libvirt";
+
   home.packages = with pkgs; [
     # Python tooling
     python313Packages.black
