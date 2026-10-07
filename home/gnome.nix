@@ -11,7 +11,6 @@
 
   home.packages = with pkgs; [
     gnomeExtensions.appindicator
-    gnomeExtensions.quake-terminal
     wl-clipboard
   ];
 
@@ -29,7 +28,6 @@
       disable-user-extensions = false;
       enabled-extensions = [
         "appindicatorsupport@rgcjonas.gmail.com"
-        "quake-terminal@diegodario88.github.io"
       ];
     };
 
