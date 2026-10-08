@@ -112,8 +112,8 @@
           {
             name = "claude-code";
             publisher = "anthropic";
-            version = "2.1.293";
-            sha256 = "sha256-2FpGxx/ZcfzsYJlSFxCB76FaKvuxwuo9O3slYFI8hcE=";
+            version = "2.1.294";
+            sha256 = "sha256-HZlGRobeeILZnf1wmYUs4ul/n6QoZgxsMzzLPMOYzFc=";
           }
           {
             name = "mermaid-markdown-syntax-highlighting";
