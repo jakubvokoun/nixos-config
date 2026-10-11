@@ -204,11 +204,11 @@ in
     super-slicer
 
     # AI
-    pkgsUnstable.herdr
     llm-agents.claude-code
     llm-agents.codegraph
     llm-agents.opencode
     llm-agents.openspec
     llm-agents.pi
+    llm-agents.omp
   ];
 }

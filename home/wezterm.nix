@@ -13,7 +13,6 @@
         -- Fonts
         font = wezterm.font("JetBrainsMono Nerd Font", { weight = 'Regular', italic = false }),
         font_size = 12.0,
-        front_end = "WebGpu",
         harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 
         -- Font rendering / antialiasing: grayscale + full hinting.
@@ -26,10 +25,10 @@
 
         -- Window
         window_padding = {
-          left = 5,
-          right = 5,
-          top = 5,
-          bottom = 5,
+          left = 0,
+          right = 0,
+          top = 0,
+          bottom = 0,
         },
 
         -- Color scheme

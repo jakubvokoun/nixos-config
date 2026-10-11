@@ -28,6 +28,7 @@ in
     ./git.nix
     ./helix.nix
     ./ghostty.nix
+    ./wezterm.nix
     ./nixvim.nix
     ./starship.nix
     ./tmux.nix

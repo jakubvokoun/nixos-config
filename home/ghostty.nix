@@ -29,12 +29,12 @@
       window-theme = "light";
       window-decoration = "server";
       window-padding-x = [
-        5
-        5
+        0
+        0
       ];
       window-padding-y = [
-        5
-        5
+        0
+        0
       ];
       term = "xterm-256color";
     };
