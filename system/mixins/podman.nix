@@ -59,6 +59,10 @@
     lazydocker
     oxker
     dive
+    # Other
+    toolbox
+    distrobox
+    distrobox-tui
   ];
 
   # Access to the rootful system socket (/run/podman/podman.sock), for the odd

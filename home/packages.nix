@@ -109,6 +109,7 @@ in
 
     # Communication
     karere
+    telegram-desktop
     slack
     thunderbird
 
