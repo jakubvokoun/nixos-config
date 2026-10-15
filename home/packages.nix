@@ -205,6 +205,7 @@ in
     super-slicer
 
     # AI
+    pkgsUnstable.openshell
     llm-agents.claude-code
     llm-agents.codegraph
     llm-agents.opencode
