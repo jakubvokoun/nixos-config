@@ -199,12 +199,15 @@ in
     newsflash
     overskride
     seahorse
+    vicinae
 
     # 3D print
     openscad
     super-slicer
 
     # AI
+    pkgsUnstable.kiro
+    pkgsUnstable.kiro-cli
     pkgsUnstable.openshell
     llm-agents.claude-code
     llm-agents.codegraph

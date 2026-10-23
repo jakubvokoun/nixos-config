@@ -61,7 +61,6 @@ in
     # Dev tooling
     lnav
     pre-commit
-    pkgsUnstable.kiro
 
     # Security & supply chain
     cyclonedx-cli

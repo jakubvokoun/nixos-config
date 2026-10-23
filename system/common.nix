@@ -196,6 +196,8 @@
     #];
   };
 
+  services.fwupd.enable = true;
+
   # https://github.com/numtide/llm-agents.nix?tab=readme-ov-file#binary-cache
   nix.settings = {
     extra-substituters = [ "https://cache.numtide.com" ];

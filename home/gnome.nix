@@ -11,6 +11,7 @@
 
   home.packages = with pkgs; [
     gnomeExtensions.appindicator
+    gnomeExtensions.vicinae
     wl-clipboard
   ];
 
@@ -28,6 +29,7 @@
       disable-user-extensions = false;
       enabled-extensions = [
         "appindicatorsupport@rgcjonas.gmail.com"
+        "vicinae@dagimg-dot.shell-extension"
       ];
     };
 
