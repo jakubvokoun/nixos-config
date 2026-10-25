@@ -208,7 +208,6 @@ in
     # AI
     pkgsUnstable.kiro
     pkgsUnstable.kiro-cli
-    pkgsUnstable.openshell
     llm-agents.claude-code
     llm-agents.codegraph
     llm-agents.opencode
