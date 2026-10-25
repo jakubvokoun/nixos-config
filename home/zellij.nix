@@ -15,7 +15,7 @@
       mouse_mode = true;
       show_startup_tips = false;
       show_release_notes = false;
-      theme = "tokyo-night";
+      theme = "nightfox";
     };
   };
 }

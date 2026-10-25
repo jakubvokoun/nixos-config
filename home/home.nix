@@ -32,6 +32,7 @@ in
     ./nixvim.nix
     ./starship.nix
     ./tmux.nix
+    ./zellij.nix
     ./vscode.nix
     ./gpg.nix
     ./gnome.nix
