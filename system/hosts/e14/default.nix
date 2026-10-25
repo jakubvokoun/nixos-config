@@ -4,6 +4,7 @@
   imports = [
     ./hardware.nix
     ../../mixins/podman.nix
+    ../../mixins/openshell.nix
     ../../mixins/gnome.nix
     #../../mixins/gnome-rdp.nix
     ../../mixins/tailscale.nix

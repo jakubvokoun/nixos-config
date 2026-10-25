@@ -47,6 +47,7 @@ system/
   vm-guest.nix             # virtualisation.vmVariant overrides (inert outside build-vm)
   cachix.nix  cachix/
   mixins/*.nix             # optional system modules, imported by a host
+  packages/*.nix           # locally packaged software, callPackage'd by a mixin
   hosts/
     e14/                   # ThinkPad E14 Gen 3
       default.nix          #   hostname, bootloader, mixins, stateVersion
@@ -461,6 +462,7 @@ programs.nixvim.colorschemes.catppuccin.settings.flavour = lib.mkForce "latte";
 | `gnome.nix` | GDM + GNOME, fonts, dconf |
 | `gnome-rdp.nix` | GNOME Remote Desktop (RDP), system mode |
 | `podman.nix` | Podman, rootless, with Docker CLI/API/compose compatibility and GUI/TUI tools |
+| `openshell.nix` | NVIDIA OpenShell 0.1.x CLI + gateway user unit on rootless Podman (needs `podman.nix`) |
 | `docker.nix` | Docker (daemon mode) |
 | `rootless-docker.nix` | Docker (rootless mode) |
 | `containerd.nix` | containerd |
@@ -580,6 +582,34 @@ podman info --format '{{.Host.NetworkBackend}} {{.Host.RootlessNetworkCmd}}'
 systemctl --user status podman.socket
 docker compose version
 ```
+
+#### OpenShell
+
+`openshell.nix` (on `e14`) installs [NVIDIA OpenShell](https://github.com/NVIDIA/OpenShell)
+0.1.x from the upstream release binaries (`system/packages/openshell.nix`);
+nixpkgs only has 0.0.x, whose embedded k3s gateway fails on rootless Podman.
+
+- **Gateway**: user unit `openshell-gateway`, started with every session, a
+  port of upstream's RPM unit. Listens on `https://127.0.0.1:17670` (mTLS).
+  On first start it seeds `~/.config/openshell/gateway.toml` (Podman driver
+  pinned) and generates the PKI under `~/.local/state/openshell/tls/`.
+- **Config**: `~/.config/openshell/gateway.toml` is user-owned, not managed
+  by Nix; edit it and `systemctl --user restart openshell-gateway`.
+- **Images**: the gateway pulls `ghcr.io/nvidia/openshell/{supervisor,sandbox}:<version>`
+  on first sandbox create.
+
+Register the gateway with the CLI once, after the first start:
+
+```bash
+openshell gateway add --local https://127.0.0.1:17670
+openshell sandbox create --name dev
+```
+
+The weekly `podman system prune --all` removes images no container uses, so a
+locally built sandbox image (`localhost/...`) must be rebuilt after a prune.
+
+Bump: change `version` in `system/packages/openshell.nix` and refresh both
+asset hashes (`nix store prefetch-file --json <url> | jq -r .hash`).
 
 #### Rootless Docker
 
