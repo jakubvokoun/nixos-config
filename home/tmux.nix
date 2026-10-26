@@ -34,6 +34,9 @@
       bind % split-window -h -c "#{pane_current_path}"
       bind c new-window -c "#{pane_current_path}"
 
+      # Let apps send kitty graphics (image previews) to the outer terminal
+      set -g allow-passthrough on
+
       # Copy & paste
       bind-key -T copy-mode-vi v send-keys -X begin-selection
       bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
