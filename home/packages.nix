@@ -199,7 +199,6 @@ in
     newsflash
     overskride
     seahorse
-    vicinae
 
     # 3D print
     openscad

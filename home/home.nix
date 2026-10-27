@@ -36,6 +36,7 @@ in
     ./vscode.nix
     ./gpg.nix
     ./gnome.nix
+    ./vicinae.nix
     #./ld.nix
   ];
 

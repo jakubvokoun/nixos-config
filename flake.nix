@@ -13,6 +13,9 @@
     # plugin set was tested against, and overriding it only produces a warning
     # and untested combinations.
     nixvim.url = "github:nix-community/nixvim/nixos-26.05";
+    # Not `follows`-ing nixpkgs: vicinae.cachix.org only has builds against
+    # the flake's own pinned nixpkgs.
+    vicinae.url = "github:vicinaehq/vicinae";
   };
 
   outputs =
