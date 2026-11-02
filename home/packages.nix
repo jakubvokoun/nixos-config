@@ -182,7 +182,9 @@ in
     hunspellDicts.en_US
     libreoffice-still
     marp-cli
-    obsidian
+    # Electron 43 breaks the renderer `webFrame` IPC (UnhandledPromiseRejectionWarning
+    # spam); drop the pin once nixpkgs obsidian runs clean on the default electron.
+    (obsidian.override { electron = electron_42; })
 
     # Multimedia
     audacity
