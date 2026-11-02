@@ -100,8 +100,8 @@
           {
             name = "vscode-blade-formatter";
             publisher = "shufo";
-            version = "0.26.3";
-            sha256 = "sha256-Ccjh8dgOPW3+uM9fQ7mloMsHEs3zP3fEE9BxQxorpf8=";
+            version = "0.26.4";
+            sha256 = "sha256-MiWvrPSBXQIMgVQi4FFdmnkmCz8+/f7XkFz1+suPO8I=";
           }
           {
             name = "templ";
@@ -112,8 +112,9 @@
           {
             name = "claude-code";
             publisher = "anthropic";
-            version = "2.1.294";
-            sha256 = "sha256-HZlGRobeeILZnf1wmYUs4ul/n6QoZgxsMzzLPMOYzFc=";
+            version = "2.1.314";
+            arch = "linux-x64";
+            sha256 = "sha256-vZfzIOXqmxrkNuKnicXBITaVBV59S2UbGrf3unrFXUE=";
           }
           {
             name = "mermaid-markdown-syntax-highlighting";
