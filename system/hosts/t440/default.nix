@@ -31,9 +31,6 @@
 
   users.users.jakub.extraGroups = [ "video" ];
 
-  # Half the core count of the E14.
-  nix.settings.max-jobs = lib.mkForce 4;
-
   # Pins stateful defaults to the release this host was installed from. Never bump.
   system.stateVersion = "24.11";
 }

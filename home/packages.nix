@@ -118,7 +118,7 @@ in
 
     # Remote desktop
     #remmina
-    rustdesk
+    #rustdesk
 
     # Work - cloud & infra
     ansible

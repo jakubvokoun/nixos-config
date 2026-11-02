@@ -175,8 +175,8 @@
     auto-optimise-store = true;
     # Allowed users - needed for Home manager
     allowed-users = [ "@wheel" ];
-    # nproc --all
-    max-jobs = 16;
+    # Parallel builds; each may use all cores (cores = 0)
+    max-jobs = 4;
   };
 
   nix.gc = {
